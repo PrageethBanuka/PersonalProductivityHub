@@ -44,5 +44,5 @@ The **Personal Productivity Hub** is a dual-interface application designed to op
 ### **1. Web Application**
 1. Clone the repository:
    ```bash
-   git clone https://github.com/YourUsername/Enhanced-Productivity-Hub.git
+   git clone https://github.com/PrageethBanuka/PersonalProductivityHub.git
    cd Enhanced-Productivity-Hub/web-app
