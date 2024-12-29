@@ -2,22 +2,19 @@
 
 import React from "react";
 import Hero from "../components/Hero/index";
+import Features from "../components/Features/index";
 
 const Events = () => {
-    return (
-        <Hero/>
-        // <div
-        //     style={{
-        //         display: "flex",
-        //         justifyContent: "center",
-        //         alignItems: "center",
-        //         height: "100vh",
-        //         marginTop:"100px",
-        //     }}
-        // >
-        //     <h1>Welcome to Focusly</h1>
-        // </div>
-    );
+  return (
+    <>
+      <div>
+        <Hero />
+      </div>
+      <div>
+        <Features />
+      </div>
+    </>
+  );
 };
 
 export default Events;
