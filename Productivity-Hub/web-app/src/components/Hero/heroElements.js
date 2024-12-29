@@ -13,9 +13,9 @@ export const HeroContainer = styled.section`
   h1 {
     font-size: 3rem;
     margin-bottom: 1rem;
-    background: -webkit-linear-gradient(-65deg,#eee, #333);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  //   background: -webkit-linear-gradient(-65deg,#eee, #333);
+  // -webkit-background-clip: text;
+  // -webkit-text-fill-color: transparent;
   }
 
   p {
