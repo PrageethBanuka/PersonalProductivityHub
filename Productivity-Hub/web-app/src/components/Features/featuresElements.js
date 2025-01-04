@@ -1,5 +1,3 @@
-// components/Features/featuresElements.js
-
 import styled from "styled-components";
 
 export const FeaturesSection = styled.div`
