@@ -10,6 +10,7 @@ import {
 } from "./navbarElements";
 
 import {CircleCheckBig } from 'lucide-react'
+import { BtnLink } from "../Global/ButtonLink";
 
 const Navbar = () => {
     return (
@@ -33,16 +34,16 @@ const Navbar = () => {
                         Pricing
                     </NavLink>
                     
-                    <NavLink to="/sign-up" activeStyle>
+                    <NavLink to="/signup" activeStyle>
                         Sign Up
                     </NavLink>
                     {/* Second Nav */}
                     {/* <NavBtnLink to='/sign-in'>Sign In</NavBtnLink> */}
                 </NavMenu>
                 <NavBtn>
-                    <NavBtnLink to="/signin">
-                        Sign In
-                    </NavBtnLink>
+                    <BtnLink to="/signin">
+                         Sign In
+                    </BtnLink>
                 </NavBtn>
             </Nav>
         </>

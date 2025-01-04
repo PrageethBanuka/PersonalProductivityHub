@@ -11,32 +11,38 @@ import {
   FeatureTitle,
   FeatureDescription,
 } from "./featuresElements";
+import { CircleCheckBig, Zap, Brain, Laptop, Cloud } from "lucide-react";
 
 const features = [
   {
-    icon: "✓", // Replace this with an actual icon component if needed
+    icon: <CircleCheckBig size={60} />, // Replace this with an actual icon component if needed
     title: "Task Management",
-    description: "Organize and prioritize your tasks with ease. Set due dates, add labels, and never miss a deadline.",
+    description:
+      "Organize and prioritize your tasks with ease. Set due dates, add labels, and never miss a deadline.",
   },
   {
-    icon: "⚡",
+    icon: <Zap size={60} />,
     title: "Habit Tracking",
-    description: "Build and maintain productive habits. Track your progress and celebrate your streaks.",
+    description:
+      "Build and maintain productive habits. Track your progress and celebrate your streaks.",
   },
   {
-    icon: "🧠",
+    icon: <Brain size={60} />,
     title: "AI Insights",
-    description: "Get personalized productivity recommendations based on your work patterns and goals.",
+    description:
+      "Get personalized productivity recommendations based on your work patterns and goals.",
   },
   {
-    icon: "💻",
+    icon: <Laptop size={60} />,
     title: "Cross-Platform",
-    description: "Access your tasks and habits from anywhere. Available on web and as a desktop application.",
+    description:
+      "Access your tasks and habits from anywhere. Available on web and as a desktop application.",
   },
   {
-    icon: "☁️",
+    icon: <Cloud size={60} />,
     title: "Seamless Sync",
-    description: "Your data is always in sync across all your devices, powered by our reliable cloud infrastructure.",
+    description:
+      "Your data is always in sync across all your devices, powered by our reliable cloud infrastructure.",
   },
 ];
 
@@ -45,7 +51,8 @@ export default function Features() {
     <FeaturesSection>
       <FeaturesHeading>A better way to stay productive</FeaturesHeading>
       <FeaturesSubheading>
-        Seamlessly sync between devices, work offline, and get AI-powered insights to boost your productivity.
+        Seamlessly sync between devices, work offline, and get AI-powered
+        insights to boost your productivity.
       </FeaturesSubheading>
       <FeaturesGrid>
         {features.map((feature, index) => (

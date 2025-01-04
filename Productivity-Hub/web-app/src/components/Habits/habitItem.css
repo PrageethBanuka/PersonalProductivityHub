@@ -1,0 +1,63 @@
+.habit-card {
+    display: flex;
+    align-items: center;
+  
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    border: 1px solid #e0e0e0;
+    transition: box-shadow 0.2s ease;
+  }
+  
+  .habit-card:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  input[type="checkbox"] {
+      margin-right: 10px;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border: 2px solid black;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.2s , border-color 0.2s ease;
+  }
+  input[type="checkbox"]:checked{
+      background-color: #ccc;
+      border: 2px solid #ccc;
+  }
+  .checkmark {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 25px;
+      width: 25px;
+      background-color: #eee;
+    }
+    .checkmark::after{
+      content: "cd";
+    }
+  
+  /* Task text styles */
+  span.not-completed {
+    flex-grow: 1;
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  span.completed {
+    flex-grow: 1;
+    font-size: 1rem;
+    text-decoration: line-through;
+    color: #999;
+  }
+  
+  .task-actions {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+  }
+  
