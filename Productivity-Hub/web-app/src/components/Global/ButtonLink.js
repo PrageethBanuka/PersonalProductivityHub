@@ -3,6 +3,7 @@ import { NavLink as Link } from "react-router-dom";
 
 export const BtnLink = styled(Link)`
   border-radius: 4px;
+  z-index:1;
   background: #0c0c0c;
   padding: 10px 22px;
   color: #fcfcfc;

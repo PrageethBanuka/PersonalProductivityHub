@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-// Hero container styled component
 export const HeroContainer = styled.section`
   position: relative;
   display: flex;
@@ -12,53 +11,52 @@ export const HeroContainer = styled.section`
   background: #fcfcfc;
   color: #0c0c0c;
   overflow: hidden;
+  cursor: url("src/components/Hero/custom-cursor.png"),auto;
 
-  /* Grid Background */
-  &::before {
-    content: "";
+  /* Background Layer */
+  .background {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: transparent;
-    pointer-events: none;
-    z-index: -1; /* Behind the content */
-    transition: background 0.5s ease;
+    background: radial-gradient(#e5e5e5 1px, transparent 1px),
+      radial-gradient(#0c0c0c 1px, transparent 1px);
+    background-size: 30px 30px;
+    background-position: 0 0, 10px 10px;
+    z-index: 0; /* Keep it behind the content */
+    pointer-events: none; /* Ensure no interference with clicks */
   }
 
-  /* Grid Animation on Hover */
-  &:hover::before {
-    background: radial-gradient(circle, rgba(0, 0, 0, 0.98) 1px, transparent 1px) 0 0 / 40px 40px; /* Increase grid size */
-    animation: gridAnimation 1.5s infinite;
+  /* Blur Effect */
+  .background::after {
+    content: "";
+    position: absolute;
+    top: var(--cursor-y, 50%);
+    left: var(--cursor-x, 50%);
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.05) 0%, transparent 100%);
+    backdrop-filter: blur(3px);
+    pointer-events: none; /* Ensure no interference with clicks */
+    transform: translate(-50%, -50%);
+    border:0.1px solid rgba(0, 0, 0, 0.2);
+    mask-effect:invert;
+    
   }
 
-  /* Grid Animation Keyframe */
-  @keyframes gridAnimation {
-    0% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.1);
-    }
-    100% {
-      transform: scale(1);
-    }
-  }
-
-  /* Ensuring Content is in Front */
-  h1, p, button {
-    position: relative; /* Add relative positioning to ensure it's above the grid */
-    z-index: 1; /* Place the text and button above the grid background */
+  /* Content Styling */
+  h1,
+  p,
+  button {
+    position: relative;
+    z-index: 1; /* Place above the background */
   }
 
   h1 {
     font-size: 4rem;
     margin-bottom: 1rem;
-    /* Optional gradient text */
-    // background: -webkit-linear-gradient(-65deg, #eee, #333);
-    // -webkit-background-clip: text;
-    // -webkit-text-fill-color: transparent;
   }
 
   p {
@@ -66,5 +64,27 @@ export const HeroContainer = styled.section`
     margin-bottom: 2rem;
     width: 50%;
     text-align: center;
+  }
+
+  /* Button */
+  button {
+  border-radius: 4px;
+  background: #0c0c0c;
+  padding: 10px 22px;
+  color: #fcfcfc;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+  /* Second Nav */
+  margin-left: 24px;
+  &:hover {
+    transition: all 0.2s ease-in-out;
+    background: #rgb(196, 195, 195);
+    color: #fff;
+    position: relative;
+    z-index: 1; /* Ensure it's clickable and above all layers */
+    cursor: pointer;
   }
 `;

@@ -9,7 +9,7 @@ const TaskForm = () => {
   const { addTask } = useTasks(); // Correctly destructuring addTask
 
   const handleSubmit = (e) => {
-    console.log("clicked");
+    // console.log("clicked");
     e.preventDefault();
     if (task.trim()) {
       addTask(task); // Call addTask to add the task
