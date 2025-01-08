@@ -52,6 +52,12 @@
   border-radius: 5px;
   overflow: hidden;
   margin-top: 5px;
+  width: 600px;
+}
+@media screen and (max-width: 768px) {
+  .progress-bar{
+    width: 200px;
+  }
 }
 
 .progress-bar-fill {

@@ -28,6 +28,7 @@ export const FeaturesSubheading = styled.p`
   @media screen and (max-width: 768px) {
     font-size: 1rem;
   }
+  
 `;
 
 export const FeaturesGrid = styled.div`

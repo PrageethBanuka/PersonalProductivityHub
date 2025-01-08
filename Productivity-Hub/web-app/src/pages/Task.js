@@ -1,7 +1,8 @@
 import React from "react";
 import "./Task.css";
 
-import { TaskForm, TaskList } from "../components/Task";
+import { TaskForm, TaskItem, TaskList } from "../components/Task";
+
 
 
 function Task() {
@@ -23,6 +24,7 @@ function Task() {
           </div>
         </li>
       </ul> */}
+
       <TaskList />
     </div>
     </>

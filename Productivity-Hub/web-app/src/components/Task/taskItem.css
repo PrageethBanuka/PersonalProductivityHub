@@ -60,3 +60,52 @@ span.completed {
   gap: 15px;
   align-items: center;
 }
+
+.task-timer {
+  font-size: 0.9rem;
+  color: #555;
+  margin-right: 15px;
+}
+
+.popup-content {
+  /* background-color: #fcfcfc; */
+  color : #0c0c0c;
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  backdrop-filter: blur(5px) saturate();
+  border: 1px solid #ccc;
+  align-items: center;
+
+}
+.popup-content label {
+  padding: 10px;
+  
+  
+}
+.popup-content input {
+  padding: 10px;
+  border-radius: 2px;
+}
+.DatePicker {
+  padding: 1px;
+  border-radius: 2px;
+}
+
+.SetTimer {
+  padding: 10px;
+}
+
+#popup1 {
+  display: block;
+  background-color: #0c0c0c;
+}
+.Timer_ico {
+  color: #555;
+}
+.Check_ico {
+  color: #555;
+}
+.X_ico {
+  color: #555;
+}
