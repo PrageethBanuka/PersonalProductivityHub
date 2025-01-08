@@ -12,6 +12,7 @@ export const HeroContainer = styled.section`
   color: #0c0c0c;
   overflow: hidden;
   cursor: url("src/components/Hero/custom-cursor.png"),auto;
+  cursor: none;
 
   /* Background Layer */
   .background {
@@ -34,8 +35,8 @@ export const HeroContainer = styled.section`
     position: absolute;
     top: var(--cursor-y, 50%);
     left: var(--cursor-x, 50%);
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     background: radial-gradient(circle, rgba(0, 0, 0, 0.05) 0%, transparent 100%);
     backdrop-filter: blur(3px);
@@ -43,6 +44,7 @@ export const HeroContainer = styled.section`
     transform: translate(-50%, -50%);
     border:0.1px solid rgba(0, 0, 0, 0.2);
     mask-effect:invert;
+    
     
   }
 
@@ -57,7 +59,29 @@ export const HeroContainer = styled.section`
   h1 {
     font-size: 4rem;
     margin-bottom: 1rem;
+    filter:blur(3px);
+    transition : filter 0.5s ease-in-out;
+    
   }
+  h1:hover {
+  scale: 1.001;
+  filter:blur(0.4px);
+  opacity: 80%;
+  
+  }
+  .title{
+    position: relative;
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    filter:blur(3px);
+    transition : filter 0.5s ease-in-out;
+    z-index:1;
+  }
+    .title:hover{
+    scale: 1.001;
+  filter:blur(0.4px);
+  opacity: 80%;
+    }
 
   p {
     font-size: 1.25rem;

@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { HeroContainer } from "./heroElements";
 import { BtnLink } from "../Global/ButtonLink";
 import { Btn } from "../Global/Button";
+import { motion } from "framer-motion";
+import { title } from "framer-motion/client";
 
 const Hero = () => {
   const [cursorPos, setCursorPos] = useState({ x: "50%", y: "50%" });
@@ -16,6 +18,7 @@ const Hero = () => {
 
     setCursorPos({ x: `${x}%`, y: `${y}%` });
   };
+  const text = "Your personal productivity companion".split(" ");
 
   return (
     <HeroContainer
@@ -26,7 +29,22 @@ const Hero = () => {
       onMouseMove={handleMouseMove}
     >
       
-      <h1>Your personal productivity companion</h1>
+      {/* <h1>Your personal productivity companion</h1> */}
+      <div class="title">
+      {text.map((el, i) => (
+        <motion.span
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 0.5,
+            delay: i / 10,
+          }}
+          key={i}
+        >
+          {el}{" "}
+        </motion.span>
+      ))}
+      </div>
       <p>
         Seamlessly manage tasks, build habits, and get AI-powered insights to
         boost your productivity. Available on web and desktop, always in sync.

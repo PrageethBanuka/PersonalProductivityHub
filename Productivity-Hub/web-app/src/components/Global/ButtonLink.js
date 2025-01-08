@@ -16,7 +16,7 @@ export const BtnLink = styled(Link)`
   margin-left: 24px;
   &:hover {
     transition: all 0.2s ease-in-out;
-    background: #rgb(196, 195, 195);
+    background-color: #555555;
     color: #fff;
   }
 `;
