@@ -1,53 +1,51 @@
 import React from "react";
 import {
-    Nav,
-    NavLink,
-    Bars,
-    NavMenu,
-    NavBtn,
-    NavBtnLink,
-    Logo,
+  Nav,
+  NavLink,
+  Bars,
+  NavMenu,
+  NavBtn,
+  NavBtnLink,
+  Logo,
 } from "./navbarElements";
 
-import {CircleCheckBig } from 'lucide-react'
+import { CircleCheckBig } from "lucide-react";
 import { BtnLink } from "../Global/ButtonLink";
 
 const Navbar = () => {
-    return (
-        <>
-            <Nav>
-                <Bars />
-                
-                <NavMenu>
-                <Logo to = "/"><CircleCheckBig/> Focusly</Logo>
-                    
-                    <NavLink to="/Task" >
-                        Tasks
-                    </NavLink>
-                    <NavLink to="/Habits" activeStyle>
-                        Habits
-                    </NavLink>
-                    <NavLink to="/AIInsights" activeStyle>
-                        AI Insights
-                    </NavLink>
-                    <NavLink to="/Pricing" activeStyle>
-                        Pricing
-                    </NavLink>
-                    
-                    <NavLink to="/signup" activeStyle>
-                        Sign Up
-                    </NavLink>
-                    {/* Second Nav */}
-                    {/* <NavBtnLink to='/sign-in'>Sign In</NavBtnLink> */}
-                </NavMenu>
-                <NavBtn>
-                    <BtnLink to="/signin">
-                         Sign In
-                    </BtnLink>
-                </NavBtn>
-            </Nav>
-        </>
-    );
+  return (
+    <>
+      <Nav>
+        <Bars />
+
+        <NavMenu>
+          <Logo to="/">
+            <CircleCheckBig /> Focusly
+          </Logo>
+
+          <NavLink to="/Task">Tasks</NavLink>
+          <NavLink to="/Habits" activeStyle>
+            Habits
+          </NavLink>
+          <NavLink to="/AIInsights" activeStyle>
+            AI Insights
+          </NavLink>
+          <NavLink to="/Pricing" activeStyle>
+            Pricing
+          </NavLink>
+
+          <NavLink to="/signup" activeStyle>
+            Sign Up
+          </NavLink>
+          {/* Second Nav */}
+          
+        </NavMenu>
+        <NavBtn>
+            <BtnLink to="/signin">Sign In</BtnLink>
+          </NavBtn>
+      </Nav>
+    </>
+  );
 };
 
 export default Navbar;
