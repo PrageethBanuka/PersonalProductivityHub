@@ -11,7 +11,7 @@ export const HeroContainer = styled.section`
   background: #fcfcfc;
   color: #0c0c0c;
   overflow: hidden;
-  cursor: url("src/components/Hero/custom-cursor.png"),auto;
+  cursor: url("src/components/Hero/custom-cursor.png"), auto;
   cursor: none;
 
   /* Background Layer */
@@ -35,17 +35,20 @@ export const HeroContainer = styled.section`
     position: absolute;
     top: var(--cursor-y, 50%);
     left: var(--cursor-x, 50%);
-    width: 100px;
-    height: 100px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(0, 0, 0, 0.05) 0%, transparent 100%);
+    /* background: radial-gradient(
+      circle,
+      rgba(0, 0, 0, 0.6) 0%,
+      transparent 100%
+    ); */
+    background-color:rgba(12, 12, 12, 0.18);
     backdrop-filter: blur(3px);
     pointer-events: none; /* Ensure no interference with clicks */
     transform: translate(-50%, -50%);
-    border:0.1px solid rgba(0, 0, 0, 0.2);
-    mask-effect:invert;
-    
-    
+    border: 0.1px solid rgba(0, 0, 0, 0.2);
+    mask-effect: invert;
   }
 
   /* Content Styling */
@@ -59,29 +62,29 @@ export const HeroContainer = styled.section`
   h1 {
     font-size: 4rem;
     margin-bottom: 1rem;
-    filter:blur(3px);
-    transition : filter 0.5s ease-in-out;
-    
+    filter: blur(3px);
+    transition: filter 0.5s ease-in-out;
   }
   h1:hover {
-  scale: 1.001;
-  filter:blur(0.4px);
-  opacity: 80%;
-  
+    scale: 1.001;
+    filter: blur(0.4px);
+    opacity: 80%;
   }
-  .title{
+  .title {
     position: relative;
     font-size: 4rem;
+    font-weight:bold;
     margin-bottom: 1rem;
-    filter:blur(3px);
-    transition : filter 0.5s ease-in-out;
-    z-index:1;
-  }
-    .title:hover{
+    filter: blur(2.5px);
     scale: 1.001;
-  filter:blur(0.4px);
-  opacity: 80%;
-    }
+    transition: filter 0.5s ease-in-out;
+    z-index: 1;
+  }
+  .title:hover {
+    scale: 1;
+    filter: blur(0.4px);
+    opacity: 80%;
+  }
 
   p {
     font-size: 1.25rem;
@@ -92,23 +95,39 @@ export const HeroContainer = styled.section`
 
   /* Button */
   button {
-  border-radius: 4px;
-  background: #0c0c0c;
-  padding: 10px 22px;
-  color: #fcfcfc;
-  outline: none;
-  border: none;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-  text-decoration: none;
-  /* Second Nav */
-  margin-left: 24px;
-  &:hover {
-    transition: all 0.2s ease-in-out;
-    background: #rgb(196, 195, 195);
-    color: #fff;
-    position: relative;
-    z-index: 1; /* Ensure it's clickable and above all layers */
+    position: absolute;
+    border-radius: 4px;
+    background: #0c0c0c;
+    padding: 10px 22px;
+    color: #fcfcfc;
+    outline: none;
+    border: none;
     cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    text-decoration: none;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    /* Second Nav */
+    &:hover {
+      transition: all 0.2s ease-in-out;
+      background: rgb(196, 195, 195);
+      color: #fff;
+      position: relative;
+      z-index: 1; /* Ensure it's clickable and above all layers */
+      cursor: pointer;
+    }
+    
   }
+  .Btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%; /* Ensure it spans the full width of the parent */
+  margin-left: -24px;
+  margin-right: auto;
+  
+  height: fit-content; /* Ensure height only depends on the content */
+}
 `;

@@ -1,0 +1,132 @@
+/* Sign In Container */
+.signin-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f9f9f9;
+  }
+  
+  /* Sign In Box */
+  .signin-box {
+    background-color: #ffffff;
+    padding: 2rem;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Title */
+  .signin-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #333333;
+  }
+  
+  /* Form */
+  .signin-form .form-group {
+    margin-bottom: 1.25rem;
+  }
+  
+  .signin-form label {
+    display: block;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    color: #555555;
+  }
+  
+  .signin-form input[type="email"],
+  .signin-form input[type="password"] {
+    width: 90%;
+    padding: 0.75rem;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+  }
+  
+  .signin-form input[type="email"]:focus,
+  .signin-form input[type="password"]:focus {
+    border-color: #333333;
+  }
+  
+  /* Error Styling */
+  .field-error {
+    color: #d9534f;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+  
+  .error-message {
+    color: #d9534f;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    text-align: center;
+  }
+  
+  /* Input Field with Error */
+  .input-error {
+    border-color: #d9534f !important;
+  }
+  
+  /* Sign In Button */
+  .signin-button {
+    width: 100%;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 4px;
+    background-color: #333333;
+    color: #ffffff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 1rem;
+  }
+  
+  .signin-button:hover {
+    background-color: #555555;
+  }
+  
+  /* Forgot Password and Sign-Up Footer */
+  .signin-footer {
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #555555;
+  }
+  
+  .signin-footer a {
+    color: #333333;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+  }
+  
+  .signin-footer a:hover {
+    color: #000000;
+    text-decoration: underline;
+  }
+  
+  /* Animation for error messages */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+  }
