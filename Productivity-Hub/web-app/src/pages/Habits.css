@@ -1,3 +1,8 @@
+h1 {
+  margin-top: 150px;
+  text-align: center;
+}
+
 .habits-container {
   justify-content: center;
   align-items: center;

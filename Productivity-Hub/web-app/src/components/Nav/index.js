@@ -11,6 +11,7 @@ import {
 
 import { CircleCheckBig } from "lucide-react";
 import { BtnLink } from "../Global/ButtonLink";
+import logo from "./logo.png"
 
 const Navbar = () => {
   return (
@@ -20,7 +21,7 @@ const Navbar = () => {
 
         <NavMenu>
           <Logo to="/">
-            <CircleCheckBig /> Focusly
+            <img src={logo} alt="FOCUSLY" width="150px" height="auto"></img>
           </Logo>
 
           <NavLink to="/Task">Tasks</NavLink>

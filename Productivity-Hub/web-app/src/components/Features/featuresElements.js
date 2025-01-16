@@ -41,14 +41,16 @@ export const FeatureCard = styled.div`
   background-color: #ffffff;
   padding: 2rem;
   border-radius: 8px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px dashed #0c0c0c;
   text-align: center;
-  transition: transform 0.2s ease-in-out;
+  transition: all 1s ease-in-out;
 
   &:hover {
     transform: translateY(-5px);
+    border: 1px solid #0c0c0c;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   }
-`;
+  `;
 
 export const FeatureIcon = styled.div`
   font-size: 2.5rem;

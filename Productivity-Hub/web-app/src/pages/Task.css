@@ -1,38 +1,30 @@
-/* Container for the task page */
-.task-container {
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  max-width: 800px;
-  
-  margin-left: auto;
-  margin-right: auto;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-}
-
-/* Heading styles */
-.task-container h1 {
+/* Styles for the task page */
+/* Heading */
+h1 {
+  margin-top: 150px;
   font-size: 2rem;
   color: #333;
   margin-bottom: 20px;
   text-align: center;
 }
 
-/* Task list styles */
-.task-list {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-.task-actions {
+.task-container {
   display: flex;
-  gap: 15px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  max-width: 800px;
+  margin: 10px auto;
+  background-color: #f9f9f9;
+  border-radius: 8px;
 }
 
-/* Input form styles */
-.task-form {
+
+
+
+/* Input form */
+/* .task-form {
   display: flex;
   margin-bottom: 20px;
 }
@@ -43,11 +35,36 @@
   font-size: 1rem;
   border: 1px solid #ddd;
   border-radius: 4px;
+} */
+
+/* Task list */
+/* .task-list {
+  width: 100%;
+  list-style: none;
+  padding: 0;
+} */
+
+/* Task item */
+/* .task-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  border: 1px solid #e0e0e0;
+  transition: box-shadow 0.2s ease;
 }
 
-
-h1{
-  margin-top: 100px;
+.task-item:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+} */
+.error {
+  color: #d9534f;
+  background-color: #f8d7da;
+  padding: 10px;
+  border-radius: 5px;
   text-align: center;
-  padding: 20px;
+  margin-bottom: 20px;
 }

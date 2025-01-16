@@ -1,0 +1,66 @@
+/* Task Form Container */
+.task-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    gap: 0px; /* Add space between input and button */
+  }
+  
+  /* Task Input Field */
+  .task-form input {
+    flex-grow: 1;
+    padding: 10px ;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    outline: none;
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .task-form input:focus {
+    border-color: #555;
+    box-shadow: 0 0 5px rgba(85, 85, 85, 0.5);
+  }
+  
+  /* Add Task Button */
+  /* .task-form button,
+  .task-form .btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #555;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+  } */
+  
+  /* .task-form button:hover,
+  .task-form .btn:hover {
+    background-color: #333;
+  } */
+  
+  .task-form button:active,
+  .task-form .btn:active {
+    transform: scale(0.98);
+  }
+  
+  /* Responsive Design */
+  @media screen and (max-width: 768px) {
+    .task-form {
+      flex-direction: column;
+      gap: 15px; /* Increase space for smaller screens */
+    }
+  
+    .task-form input {
+      width: 100%;
+    }
+  
+    .task-form button {
+      width: 100%;
+    }
+  }
