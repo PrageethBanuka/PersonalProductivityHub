@@ -1,0 +1,31 @@
+/* Filter Button Container */
+.filter-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+  }
+  
+  /* Filter Button Styles */
+  .filter-btn {
+    margin: 0 5px;
+    padding: 8px 16px;
+    font-size: 14px;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+  
+  .filter-btn:hover {
+    background-color: #ddd;
+  }
+  
+  .filter-btn.active {
+    background-color: #555;
+    color: #fff;
+  }
+  .noTaskMsg        {
+    text-align: center;
+    color: #d9534f;
+  }

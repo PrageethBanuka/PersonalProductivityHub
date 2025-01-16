@@ -1,60 +1,41 @@
 import React, { useState, useEffect } from "react";
-import { useTasks } from "../../context/taskContext";
 import "./taskItem.css";
-import { Link } from "react-router-dom";
-import {  Trash2, Timer, Check } from "lucide-react";
+import { Trash2, Timer, Check } from "lucide-react";
 import Popup from "reactjs-popup";
 
-const TaskItem = ({ task }) => {
-  const { toggleTaskCompletion, deleteTask, setTimer } = useTasks();
+const TaskItem = ({ task, onToggleTaskCompletion, onDeleteTask, onSetTimer }) => {
   const [selectedTime, setSelectedTime] = useState("");
   const [remainingTime, setRemainingTime] = useState("");
 
-  // Update the countdown for active timers
   useEffect(() => {
     if (!task.timer) return;
 
     const updateRemainingTime = () => {
       const now = Date.now();
-      const timeLeft = task.timer - now;
+      const timeLeft = new Date(task.timer) - now;
 
       if (timeLeft > 0) {
         const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-        const hours = Math.floor(
-          (timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-        );
+        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-        var timer ;
-
-        if (days > 0) {
-          timer = `${days}d `;
-
-        }
-        else if (hours > 0) {
-          timer = `${hours}h ${minutes}m`;
-        }
-        else {
-          timer = `${minutes}m ${seconds}s `;
-        }
-
-        setRemainingTime(timer);
+        setRemainingTime(
+          days > 0 ? `${days}d` : hours > 0 ? `${hours}h ${minutes}m` : `${minutes}m ${seconds}s`
+        );
       } else {
         setRemainingTime("Time's up!");
       }
     };
 
-    updateRemainingTime(); // Initial update
+    updateRemainingTime();
     const interval = setInterval(updateRemainingTime, 1000);
-
-    return () => clearInterval(interval); // Cleanup
+    return () => clearInterval(interval);
   }, [task.timer]);
 
   const handleSetTimer = () => {
-    const timerDate = new Date(selectedTime).getTime();
-    if (timerDate > Date.now()) {
-      setTimer(task.id, timerDate);
+    if (new Date(selectedTime) > new Date()) {
+      onSetTimer(task.id, selectedTime);
     } else {
       alert("Please select a valid future time.");
     }
@@ -65,48 +46,26 @@ const TaskItem = ({ task }) => {
       <input
         type="checkbox"
         checked={task.completed}
-        onChange={() => toggleTaskCompletion(task.id)}
+        onChange={() => onToggleTaskCompletion(task.id, !task.completed)}
       />
-
-      <span className={task.completed ? "completed" : "not-completed"}>
-        {task.text}
-      </span>
-
-      {task.timer && (
-        <div className="task-timer">
-          <span>{remainingTime}</span>
-        </div>
-      )}
-
+      <span className={task.completed ? "completed" : "not-completed"}>{task.text}</span>
+      {task.timer && <div className="task-timer">{remainingTime}</div>}
       <div className="task-actions">
         <Popup
-          trigger={
-            <Link>
-              <Timer className="Timer_ico"/>
-            </Link>
-          }
-          position={"bottom center"}
+          trigger={<Timer className="Timer_ico" />}
+          position="bottom center"
         >
           <div className="popup-content">
-            {/* <label>Set Timer: </label> */}
             <input
               type="datetime-local"
               value={selectedTime}
               onChange={(e) => setSelectedTime(e.target.value)}
-              placeholder=""
               className="DatePicker"
             />
-            <div className="SetTimer">
-              <Link onClick={handleSetTimer}>
-                <Check className="Check_ico"/>
-              </Link>
-            </div>
+            <Check className="Check_ico" onClick={handleSetTimer} />
           </div>
         </Popup>
-
-        <Link onClick={() => deleteTask(task.id)}>
-          <Trash2 className="X_ico"/>
-        </Link>
+        <Trash2 className="X_ico" onClick={() => onDeleteTask(task.id)} />
       </div>
     </div>
   );

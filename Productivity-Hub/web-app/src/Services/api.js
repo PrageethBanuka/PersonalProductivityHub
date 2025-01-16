@@ -11,3 +11,9 @@ export const loginUser = async (data) => {
   const response = await axios.post(`${API_URL}/auth/login`, data);
   return response.data;
 };
+export const fetchTasks = () => axios.get(`${API_URL}/tasks`);
+export const createTask = (task) =>
+  axios.post(`${API_URL}/tasks`, { text: task });
+export const updateTask = (id, updates) =>
+  axios.patch(`${API_URL}/tasks/${id}`, updates);
+export const deleteTask = (id) => axios.delete(`${API_URL}/tasks/${id}`);

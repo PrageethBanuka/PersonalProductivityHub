@@ -1,7 +1,7 @@
   .task-item {
     display: flex;
     align-items: center;
-
+    width:700px;
     justify-content: space-between;
     background-color: #fff;
     padding: 15px;
@@ -63,8 +63,17 @@
 
   .task-timer {
     font-size: 0.9rem;
-    color: #555;
-    margin-right: 15px;
+    color: #d9534f;
+    background-color: #f9f9f9;
+    padding: 5px;
+    border-radius: 5px;
+    margin-right: 5px;
+  }
+  .task-timer span{
+    color: #d9534f;
+    background-color: #f9f9f9;
+    padding: 5px;
+    border-radius: 5px;
   }
 
   .popup-content {
@@ -73,8 +82,10 @@
     box-shadow: none; /* Remove shadow if causing the effect */
     background: transparent; /* Avoid visual layering issues */
     display: flex;
-    align-items: center;animation: fadeInScale 0.2s ease; /* Add fade and scale animation */
-    transform-origin: top center; /* Animation pivot */
+    align-items: center;animation: fadeInScale 0.1s ease; /* Add fade and scale animation */
+    transform-origin: top center; 
+    backdrop-filter: blur(20px);
+    border-radius: 8px;
   }
   
   /* Popup entry animation */
@@ -106,6 +117,7 @@
   .SetTimer {
     padding: 10px;
   }
+  
 
   #popup1 {
     display: block;
@@ -132,4 +144,10 @@
   }
   .X_ico {
     color: #555;
+  }
+
+  @media screen and (max-width: 768px) {
+    .task-item{
+      width: 300px;
+    }
   }
