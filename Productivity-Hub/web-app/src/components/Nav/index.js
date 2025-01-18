@@ -1,50 +1,61 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 import {
   Nav,
-  NavLink,
-  Bars,
   NavMenu,
-  NavBtn,
-  NavBtnLink,
   Logo,
+  BottomNav,
+  NavLink,
+  BtnLink,
+  Indicator,
+  AvatarNavLink,
+  PlaceholderNavLink,
 } from "./navbarElements";
-
-import { CircleCheckBig } from "lucide-react";
-import { BtnLink } from "../Global/ButtonLink";
-import logo from "./logo.png"
+import logo from "./logo.png";
 
 const Navbar = () => {
+  const location = useLocation();
+  const avatar = localStorage.getItem("user.avatar");
+  const token = localStorage.getItem("token");
+
   return (
     <>
       <Nav>
-        <Bars />
-
+        <Logo to="/">
+          <img src={logo} alt="FOCUSLY" width="300px" height="auto" />
+        </Logo>
+      </Nav>
+      <BottomNav>
         <NavMenu>
-          <Logo to="/">
-            <img src={logo} alt="FOCUSLY" width="150px" height="auto"></img>
-          </Logo>
-
-          <NavLink to="/Task">Tasks</NavLink>
-          <NavLink to="/Habits" activeStyle>
+          <NavLink to="/" isActive={location.pathname === "/"}>
+            Home
+          </NavLink>
+          <NavLink to="/Task" isActive={location.pathname === "/Task"}>
+            Tasks
+          </NavLink>
+          <NavLink to="/Habits" isActive={location.pathname === "/Habits"}>
             Habits
           </NavLink>
-          <NavLink to="/AIInsights" activeStyle>
+          <NavLink to="/AIInsights" isActive={location.pathname === "/AIInsights"}>
             AI Insights
           </NavLink>
-          <NavLink to="/Pricing" activeStyle>
+          <NavLink to="/Pricing" isActive={location.pathname === "/Pricing"}>
             Pricing
           </NavLink>
-
-          <NavLink to="/signup" activeStyle>
-            Sign Up
-          </NavLink>
-          {/* Second Nav */}
-          
+          {token ? (
+            avatar ? (
+              <AvatarNavLink to="/Profile">
+                <img src={avatar} alt="Avatar" />
+              </AvatarNavLink>
+            ) : (
+              <NavLink to="/Profile" isActive={location.pathname === "/Profile"}>Profile</NavLink>
+            )
+          ) : (
+            <BtnLink to="/signin" isActive={location.pathname === "/Profile"}>Sign In</BtnLink>
+          )}
+          <Indicator />
         </NavMenu>
-        <NavBtn>
-            <BtnLink to="/signin">Sign In</BtnLink>
-          </NavBtn>
-      </Nav>
+      </BottomNav>
     </>
   );
 };

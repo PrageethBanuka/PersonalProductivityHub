@@ -41,9 +41,9 @@ export const FeatureCard = styled.div`
   background-color: #ffffff;
   padding: 2rem;
   border-radius: 8px;
-  border: 1px dashed #0c0c0c;
+  border: 1px solidrgb(155, 155, 155);
   text-align: center;
-  transition: all 1s ease-in-out;
+  transition: all 0.2s ease-in-out;
 
   &:hover {
     transform: translateY(-5px);

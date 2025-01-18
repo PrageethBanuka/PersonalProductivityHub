@@ -17,3 +17,14 @@ export const createTask = (task) =>
 export const updateTask = (id, updates) =>
   axios.patch(`${API_URL}/tasks/${id}`, updates);
 export const deleteTask = (id) => axios.delete(`${API_URL}/tasks/${id}`);
+
+export const fetchProfile = () => axios.get(`${API_URL}/user/profile`, {
+  headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+});
+
+export const updateAvatar = (avatar) =>
+  axios.put(
+    `${API_URL}/user/profile/avatar`,
+    { avatar },
+    { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
+  );

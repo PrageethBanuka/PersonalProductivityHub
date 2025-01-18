@@ -30,7 +30,7 @@ export const HeroContainer = styled.section`
   }
 
   /* Blur Effect */
-  .background::after {
+  .background::before {
     content: "";
     position: absolute;
     top: var(--cursor-y, 50%);
@@ -43,7 +43,7 @@ export const HeroContainer = styled.section`
       rgba(0, 0, 0, 0.6) 0%,
       transparent 100%
     ); */
-    background-color:rgba(12, 12, 12, 0.18);
+    background-color:rgba(12, 12, 12, 0.8);
     backdrop-filter: blur(3px);
     pointer-events: none; /* Ensure no interference with clicks */
     transform: translate(-50%, -50%);
@@ -72,18 +72,22 @@ export const HeroContainer = styled.section`
   }
   .title {
     position: relative;
-    font-size: 4rem;
+    font-size: 8rem;
     font-weight:bold;
     margin-bottom: 1rem;
-    filter: blur(2.5px);
+    /* filter: blur(2.5px); */
     scale: 1.001;
     transition: filter 0.5s ease-in-out;
     z-index: 1;
+    opacity: 0.6;
+    @media screen and (max-width: 768px) {
+    font-size: 4rem;
+  }
   }
   .title:hover {
     scale: 1;
-    filter: blur(0.4px);
-    opacity: 80%;
+    /* filter: blur(0.4px); */
+    /* opacity: 80%; */
   }
 
   p {

@@ -34,11 +34,8 @@ const TaskItem = ({ task, onToggleTaskCompletion, onDeleteTask, onSetTimer }) =>
   }, [task.timer]);
 
   const handleSetTimer = () => {
-    if (new Date(selectedTime) > new Date()) {
-      onSetTimer(task.id, selectedTime);
-    } else {
-      alert("Please select a valid future time.");
-    }
+    if (!selectedTime) return alert("Please select a time.");
+    onSetTimer(task.id, selectedTime);
   };
 
   return (
@@ -52,9 +49,10 @@ const TaskItem = ({ task, onToggleTaskCompletion, onDeleteTask, onSetTimer }) =>
       {task.timer && <div className="task-timer">{remainingTime}</div>}
       <div className="task-actions">
         <Popup
-          trigger={<Timer className="Timer_ico" />}
+          trigger={<button className="timer-btn"><Timer /></button>}
           position="bottom center"
         >
+          
           <div className="popup-content">
             <input
               type="datetime-local"
@@ -62,10 +60,14 @@ const TaskItem = ({ task, onToggleTaskCompletion, onDeleteTask, onSetTimer }) =>
               onChange={(e) => setSelectedTime(e.target.value)}
               className="DatePicker"
             />
-            <Check className="Check_ico" onClick={handleSetTimer} />
+            <button className="SetTimer" onClick={handleSetTimer}>
+              <Check />
+            </button>
           </div>
         </Popup>
-        <Trash2 className="X_ico" onClick={() => onDeleteTask(task.id)} />
+        <button className="delete-btn" onClick={() => onDeleteTask(task.id)}>
+          <Trash2 />
+        </button>
       </div>
     </div>
   );

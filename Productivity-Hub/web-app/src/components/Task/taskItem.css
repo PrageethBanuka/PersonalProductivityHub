@@ -1,153 +1,162 @@
+.task-item {
+  display: flex;
+  align-items: center;
+  width: 700px;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  border: 1px solid #e0e0e0;
+  transition: box-shadow 0.2s ease;
+}
+
+.task-item:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+input[type="checkbox"] {
+  margin-right: 10px;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid black;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s ease;
+}
+input[type="checkbox"]:checked {
+  background-color: #ccc;
+  border: 2px solid #ccc;
+}
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+.checkmark::after {
+  content: "cd";
+}
+
+/* Task text styles */
+span.not-completed {
+  flex-grow: 1;
+  font-size: 1rem;
+  color: #555;
+}
+
+span.completed {
+  flex-grow: 1;
+  font-size: 1rem;
+  text-decoration: line-through;
+  color: #999;
+
+}
+
+
+.task-actions {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.task-timer {
+  font-size: 0.9rem;
+  color: #d9534f;
+  background-color: #f9f9f9;
+  padding: 5px;
+  border-radius: 5px;
+  margin-right: 5px;
+}
+.task-timer span {
+  color: #d9534f;
+  background-color: #f9f9f9;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.popup-content {
+  padding: 10px;
+  border: none; /* Remove the container border */
+  box-shadow: none; /* Remove shadow if causing the effect */
+  background: transparent; /* Avoid visual layering issues */
+  display: flex;
+  align-items: center;
+  animation: fadeInScale 0.1s ease; /* Add fade and scale animation */
+  transform-origin: top center;
+  backdrop-filter: blur(20px);
+  border-radius: 8px;
+}
+
+/* Popup entry animation */
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.8) translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0px);
+  }
+}
+
+.popup-content label {
+  padding: 10px;
+}
+
+.popup-content input {
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.DatePicker {
+  padding: 1px;
+  border-radius: 2px;
+}
+
+.SetTimer {
+  padding: 10px;
+}
+
+#popup1 {
+  display: block;
+  background-color: #fff; /* Ensure it matches the content's overall theme */
+}
+input[type="datetime-local"]::-webkit-datetime-edit {
+  padding: 0;
+  border: none;
+  backdrop-filter: blur(20px);
+}
+
+input[type="datetime-local"]::-webkit-inner-spin-button,
+input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+  margin: 0;
+  padding: 0;
+  appearance: none;
+}
+.Timer_ico {
+  color: #555;
+}
+.Check_ico {
+  color: #555;
+}
+.X_ico {
+  color: #555;
+}
+
+@media screen and (max-width: 768px) {
   .task-item {
-    display: flex;
-    align-items: center;
-    width:700px;
-    justify-content: space-between;
-    background-color: #fff;
-    padding: 15px;
-    margin-bottom: 10px;
-    border-radius: 6px;
-    border: 1px solid #e0e0e0;
-    transition: box-shadow 0.2s ease;
+    width: 300px;
   }
-
-  .task-item:hover {
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  }
-
-  input[type="checkbox"] {
-      margin-right: 10px;
-      appearance: none;
-      width: 20px;
-      height: 20px;
-      border: 2px solid black;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: background-color 0.2s , border-color 0.2s ease;
-  }
-  input[type="checkbox"]:checked{
-      background-color: #ccc;
-      border: 2px solid #ccc;
-  }
-  .checkmark {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 25px;
-      width: 25px;
-      background-color: #eee;
-    }
-    .checkmark::after{
-      content: "cd";
-    }
-
-  /* Task text styles */
-  span.not-completed {
-    flex-grow: 1;
-    font-size: 1rem;
-    color: #555;
-  }
-
-  span.completed {
-    flex-grow: 1;
-    font-size: 1rem;
-    text-decoration: line-through;
-    color: #999;
-  }
-
-  .task-actions {
-    display: flex;
-    gap: 15px;
-    align-items: center;
-  }
-
-  .task-timer {
-    font-size: 0.9rem;
-    color: #d9534f;
-    background-color: #f9f9f9;
-    padding: 5px;
-    border-radius: 5px;
-    margin-right: 5px;
-  }
-  .task-timer span{
-    color: #d9534f;
-    background-color: #f9f9f9;
-    padding: 5px;
-    border-radius: 5px;
-  }
-
-  .popup-content {
-    padding: 10px;
-    border: none; /* Remove the container border */
-    box-shadow: none; /* Remove shadow if causing the effect */
-    background: transparent; /* Avoid visual layering issues */
-    display: flex;
-    align-items: center;animation: fadeInScale 0.1s ease; /* Add fade and scale animation */
-    transform-origin: top center; 
-    backdrop-filter: blur(20px);
-    border-radius: 8px;
-  }
-  
-  /* Popup entry animation */
-  @keyframes fadeInScale {
-    from {
-      opacity: 0;
-      transform: scale(0.8) translateY(-50px);
-    }
-    to {
-      opacity: 1;
-      transform: scale(1) translateY(0px);
-    }
-  }
-
-  .popup-content label {
-    padding: 10px;
-  }
-
-  .popup-content input {
-    padding: 10px;
-    border-radius: 5px;
-  }
-
-  .DatePicker {
-    padding: 1px;
-    border-radius: 2px;
-  }
-
-  .SetTimer {
-    padding: 10px;
-  }
-  
-
-  #popup1 {
-    display: block;
-    background-color: #fff; /* Ensure it matches the content's overall theme */
-  }
-  input[type="datetime-local"]::-webkit-datetime-edit {
-    padding:  0;
-    border: none;
-    backdrop-filter: blur(20px);
-  }
-
-  input[type="datetime-local"]::-webkit-inner-spin-button,
-  input[type="datetime-local"]::-webkit-calendar-picker-indicator {
-    margin: 0;
-    padding: 0;
-    appearance: none;
-
-  }
-  .Timer_ico {
-    color: #555;
-  }
-  .Check_ico {
-    color: #555;
-  }
-  .X_ico {
-    color: #555;
-  }
-
-  @media screen and (max-width: 768px) {
-    .task-item{
-      width: 300px;
-    }
-  }
+}
+.timer-btn,
+.delete-btn,
+.SetTimer {
+  color: #555;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}

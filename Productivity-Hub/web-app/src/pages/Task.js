@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Task.css";
 import TaskForm from "../components/Task/taskForm";
 import TaskList from "../components/Task/taskList";
@@ -8,16 +9,23 @@ function Task() {
   const [tasks, setTasks] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
-  // Fetch tasks from the backend
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      navigate("/signin"); // Redirect to login if no token
+    }
+  }, [navigate]);
+
   const fetchTasks = async () => {
     setLoading(true);
     setError("");
     try {
-      const response = await fetch("http://localhost:5001/tasks");
-      if (!response.ok) {
-        throw new Error("Failed to fetch tasks");
-      }
+      const response = await fetch("http://localhost:5001/tasks", {
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+      });
+      if (!response.ok) throw new Error("Failed to fetch tasks");
       const data = await response.json();
       setTasks(data);
     } catch (err) {
@@ -27,29 +35,31 @@ function Task() {
     }
   };
 
-  // Add a new task
   const addTask = async (taskText) => {
     try {
       const response = await fetch("http://localhost:5001/tasks", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
         body: JSON.stringify({ text: taskText }),
       });
-      if (!response.ok) {
-        throw new Error("Failed to create task");
-      }
+      if (!response.ok) throw new Error("Failed to create task");
       await fetchTasks();
     } catch (err) {
       setError(err.message);
     }
   };
 
-  // Toggle task completion
   const toggleTaskCompletion = async (taskId, completed) => {
     try {
       await fetch(`http://localhost:5001/tasks/${taskId}`, {
         method: "PUT",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
         body: JSON.stringify({ completed }),
       });
       await fetchTasks();
@@ -58,12 +68,14 @@ function Task() {
     }
   };
 
-  // Set timer for a task
   const setTimer = async (taskId, timer) => {
     try {
       await fetch(`http://localhost:5001/tasks/${taskId}`, {
         method: "PUT",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
         body: JSON.stringify({ timer: new Date(timer).toISOString() }),
       });
       await fetchTasks();
@@ -72,11 +84,13 @@ function Task() {
     }
   };
 
-  // Delete a task
   const deleteTask = async (taskId) => {
     try {
       await fetch(`http://localhost:5001/tasks/${taskId}`, {
         method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
       });
       await fetchTasks();
     } catch (err) {
