@@ -2,16 +2,14 @@ import React, { useState } from "react";
 import "./taskForm.css";
 import { Btn } from "../Global/Button";
 
-
 const TaskForm = ({ onAddTask }) => {
   const [task, setTask] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (task.trim()) {
-      onAddTask(task);
-      setTask("");
-    }
+    if (!task.trim()) return;
+    onAddTask(task);
+    setTask("");
   };
 
   return (

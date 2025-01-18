@@ -8,6 +8,7 @@ export const Btn = styled.button`
   background: #0c0c0c;
   padding: 10px 22px;
   color: #fcfcfc;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   outline: none;
   border: none;
   cursor: pointer;
@@ -15,10 +16,10 @@ export const Btn = styled.button`
   transition: all 0.2s ease-in-out;
   text-decoration: none;
   /* Second Nav */
-  margin-left: 24px;
+  
   &:hover {
     transition: all 0.2s ease-in-out;
-    background-color: #555555;
+    background-color: #555;
     color: #fff;
   }
 `;
