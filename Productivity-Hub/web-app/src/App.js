@@ -47,8 +47,52 @@ function App() {
     setIsAuthenticated(false);
     setAvatar("/public/images/user.png");
   };
+  const [isDarkTheme, setIsDarkTheme] = useState(false);
+
+  const toggleTheme = () => {
+    const root = document.documentElement; // Access <html> element
+    if (isDarkTheme) {
+      root.classList.remove("dark-theme");
+    } else {
+      root.classList.add("dark-theme");
+    }
+    setIsDarkTheme(!isDarkTheme);
+  };
+  useEffect(() => {
+    const cursor = document.querySelector(".custom-cursor");
+
+    // Update cursor position
+    const moveCursor = (e) => {
+      const { clientX: x, clientY: y } = e;
+      cursor.style.left = `${x}px`;
+      cursor.style.top = `${y}px`;
+    };
+
+    // Add hover effect
+    const addHoverEffect = () => cursor.classList.add("active");
+    const removeHoverEffect = () => cursor.classList.remove("active");
+
+    // Attach event listeners
+    window.addEventListener("mousemove", moveCursor);
+    document.querySelectorAll("button, a").forEach((el) => {
+      el.addEventListener("mouseenter", addHoverEffect);
+      el.addEventListener("mouseleave", removeHoverEffect);
+    });
+
+    // Cleanup event listeners
+    return () => {
+      window.removeEventListener("mousemove", moveCursor);
+      document.querySelectorAll("button, a").forEach((el) => {
+        el.removeEventListener("mouseenter", addHoverEffect);
+        el.removeEventListener("mouseleave", removeHoverEffect);
+      });
+    };
+  }, []);
+
 
   return (
+    <div>
+    <div className="custom-cursor"></div>
     <AuthProvider>
       <Router>
         <Navbar
@@ -63,13 +107,9 @@ function App() {
             <Route
               path="/Task"
               element={
-                isAuthenticated ? (
-                  <TaskProvider>
-                    <Task />
-                  </TaskProvider>
-                ) : (
-                  <Navigate to="/signin" />
-                )
+                <TaskProvider>
+                  <Task />
+                </TaskProvider>
               }
             />
             <Route path="/Habits" element={<Habits />} />
@@ -79,14 +119,13 @@ function App() {
             <Route path="/signin" element={<SignIn onLogin={handleLogin} />} />
             <Route
               path="/Profile"
-              element={
-                <Profile setAvatar={setAvatar} />
-              }
+              element={<Profile setAvatar={setAvatar} />}
             />
           </Routes>
         </Suspense>
       </Router>
     </AuthProvider>
+    </div>
   );
 }
 

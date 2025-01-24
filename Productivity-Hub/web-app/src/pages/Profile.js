@@ -3,7 +3,10 @@ import { useNavigate } from "react-router-dom";
 import AvatarEditor from "react-avatar-edit";
 import "./profile.css";
 import { updateAvatar, fetchProfile } from "../Services/api";
-import { Btn } from "../components/Global/Button";
+import { motion } from "framer-motion";
+import { BtnLink } from "../components/Global/ButtonLink";
+import { Pencil } from "lucide-react";
+import Popup from "reactjs-popup";
 
 const Profile = () => {
   const [profile, setProfile] = useState({});
@@ -35,34 +38,50 @@ const Profile = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("avatar"); // Clear the avatar
     setAvatar("../../public/images/user.png"); // Reset to default avatar
-    navigate("/signin"); // Redirect to the Sign-In page
+    navigate("/Home"); // Redirect to the Sign-In page
   };
 
   useEffect(() => {
     fetchUserProfile();
   }, []);
+  const openEditor = () => {};
 
   return (
-    <div>
-      <h1>Profile</h1>
+    <motion.div
+      initial={{ opacity: 0, filter: "blur(10px)" }}
+      animate={{ opacity: 1, filter: "blur(0px)" }}
+      exit={{ opacity: 0, filter: "blur(10px)" }}
+      transition={{ duration: 0.5, ease: "easeInOut" }}
+    >
+      <h1>{profile.name}</h1>
       <div className="profile-container">
         <div className="profile-avatar">
           <img src={avatar} alt="Avatar" className="profile-img" />
-        </div>
-        <div className="avatar-editor">
-          <h3>Edit Avatar</h3>
-          <AvatarEditor
-            width={300}
-            height={300}
-            onCrop={setPreview}
-            onClose={() => setPreview(null)}
-          />
-          {preview && (
-            <div>
-              <img src={preview} alt="Preview" />
-              <Btn onClick={handleSaveAvatar}>Save Avatar</Btn>
+          <Popup
+            trigger={
+              <button className="EditButton">
+                <Pencil size={15} strokeWidth={1.5} className="Pencil"/>
+              </button>
+            }
+            position="right center"
+          >
+            <div className="avatar-editor">
+              <AvatarEditor
+                width={200}
+                height={200}
+                onCrop={setPreview}
+                onClose={() => setPreview(null)}
+              />
+              {preview && (
+                <div >
+                  <img src={preview} alt="Preview" className="Preview"/>
+                  <BtnLink className="saveAvatar" onClick={handleSaveAvatar}>
+                    Save Avatar
+                  </BtnLink>
+                </div>
+              )}
             </div>
-          )}
+          </Popup>
         </div>
         <div className="profile-details">
           <p>
@@ -75,11 +94,12 @@ const Profile = () => {
             <strong>Username:</strong> {profile.username}
           </p>
         </div>
-        <Btn onClick={handleLogout} className="logout-btn">
+        
+        <BtnLink onClick={handleLogout} className="logout-btn">
           Logout
-        </Btn>
+        </BtnLink>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

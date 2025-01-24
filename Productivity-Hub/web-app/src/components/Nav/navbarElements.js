@@ -32,7 +32,7 @@ export const BottomNav = styled.div`
   max-width: 600px;
   background: transparent;
   backdrop-filter: blur(15px);
-  border-radius: 15px;
+  border-radius: 30px;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
   padding: 1rem;
   display: flex;
@@ -58,7 +58,7 @@ export const NavLink = styled(Link)`
   padding: 0.5rem 1rem;
   font-size: 1rem;
   font-weight: 500;
-  border-radius: 8px;
+  border-radius: 20px;
   position: relative;
 
   &:hover {
@@ -70,7 +70,7 @@ export const BtnLink = styled(Link)`
   padding: 0.5rem 1rem;
   background: #0c0c0c;
   color: #fff;
-  border-radius: 8px;
+  border-radius: 20px;
   text-decoration: none;
   font-weight: bold;
   transition: background-color 0.2s;

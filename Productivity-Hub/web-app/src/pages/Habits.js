@@ -1,38 +1,119 @@
-import React, { useState } from "react";
-import HabitForm from "../components/Habits/habitForm";
-import HabitList from "../components/Habits/habitList";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Habits.css";
+import HabitForm from "../components/Habits/habitForm";
+import HabitItem from "../components/Habits/habitItem";
+import { motion } from "framer-motion";
 
-const Habits = () => {
-  const [habits, setHabits] = useState([
-    { name: "Read for 30 minutes", streak: 5, maxStreak: 7 },
-    { name: "Exercise", streak: 3, maxStreak: 5 },
-    { name: "Meditate", streak: 1, maxStreak: 7 },
-  ]);
+function Habit() {
+  const [habits, setHabits] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
 
-  const addHabit = (newHabit) => {
-    setHabits((prev) => [...prev, newHabit]);
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      navigate("/signin"); // Redirect to login if no token
+    }
+  }, [navigate]);
+
+  const fetchHabits = async () => {
+    setLoading(true);
+    setError("");
+    try {
+      const response = await fetch("http://localhost:5001/habits", {
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+      });
+      if (!response.ok) throw new Error("Failed to fetch habits");
+      const data = await response.json();
+      setHabits(data);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
-  const checkInHabit = (name) => {
-    setHabits((prev) =>
-      prev.map((habit) =>
-        habit.name === name
-          ? { ...habit, streak: Math.min(habit.streak + 1, habit.maxStreak) }
-          : habit
-      )
-    );
+  const addHabit = async (habit) => {
+    try {
+      const response = await fetch("http://localhost:5001/habits", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+        body: JSON.stringify(habit),
+      });
+      if (!response.ok) throw new Error("Failed to create habit");
+      await fetchHabits();
+    } catch (err) {
+      setError(err.message);
+    }
   };
+
+  const updateHabit = async (habitId, updatedHabit) => {
+    try {
+      await fetch(`http://localhost:5001/habits/${habitId}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+        body: JSON.stringify(updatedHabit),
+      });
+      await fetchHabits();
+    } catch (err) {
+      setError(err.message);
+    }
+  };
+
+  const deleteHabit = async (habitId) => {
+    try {
+      await fetch(`http://localhost:5001/habits/${habitId}`, {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      });
+      await fetchHabits();
+    } catch (err) {
+      setError(err.message);
+    }
+  };
+
+  useEffect(() => {
+    fetchHabits();
+  }, []);
 
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0, filter: "blur(10px)" }}
+      animate={{ opacity: 1, filter: "blur(0px)" }}
+      exit={{ opacity: 0, filter: "blur(10px)" }}
+      transition={{ duration: 0.5, ease: "easeInOut" }}
+    >
       <h1>Habits</h1>
-      <div className="habits-container">
-        <HabitForm onAddHabit={addHabit} />
-        <HabitList habits={habits} onCheckIn={checkInHabit} />
+      <div className="habit-container">
+        {error && <p className="error">{error}</p>}
+        <HabitForm onAdd={addHabit} />
+        <div className="habit-list">
+          {loading ? (
+            <p>Loading...</p>
+          ) : (
+            habits.map((habit) => (
+              <HabitItem
+                key={habit.id}
+                habit={habit}
+                onUpdate={updateHabit}
+                onDelete={deleteHabit}
+              />
+            ))
+          )}
+        </div>
       </div>
-    </>
+    </motion.div>
   );
-};
+}
 
-export default Habits;
+export default Habit;

@@ -11,7 +11,7 @@ export const Btn = styled.button`
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   outline: none;
   border: none;
-  cursor: pointer;
+  
   z-index:1;
   transition: all 0.2s ease-in-out;
   text-decoration: none;
