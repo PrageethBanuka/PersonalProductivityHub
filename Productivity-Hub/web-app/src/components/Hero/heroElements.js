@@ -31,6 +31,7 @@ export const HeroContainer = styled.section`
 
   /* Blur Effect */
   .background::before {
+    display: none;
     content: "";
     position: absolute;
     top: var(--cursor-y, 50%);

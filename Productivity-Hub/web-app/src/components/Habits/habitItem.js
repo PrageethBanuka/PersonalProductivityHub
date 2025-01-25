@@ -1,24 +1,40 @@
 import React from "react";
-import ProgressBar from "./progressBar";
-import { Btn } from "../Global/Button";
-import { Zap } from "lucide-react";
 import "./habitItem.css";
 
-const HabitItem = ({ habit, onCheckIn }) => {
+const HabitItem = ({ habit, onUpdate, onDelete }) => {
+  const incrementStreak = () => {
+    if (habit.streak < habit.goal) {
+      onUpdate(habit.id, {
+        ...habit,
+        streak: habit.streak + 1,
+      });
+    }
+  };
+
   return (
-    <div className="habit-card">
-      <div className="habit-details">
+    <div className="habit-item">
+      <div className="habit-header">
         <h3>{habit.name}</h3>
-        <ProgressBar progress={habit.streak} max={habit.maxStreak} />
-        <p>
-          Streak: {habit.streak} / {habit.maxStreak} days
-        </p>
+        <button className="delete-button" onClick={() => onDelete(habit.id)}>
+          Delete
+        </button>
       </div>
-      <div className="Text-Wrapper">
-        <Btn className="check-in-btn" onClick={() => onCheckIn(habit.name)}>
-          <Zap size={10} /> Check In
-        </Btn>
+      <div className="progress-container">
+        <div
+          className="progress-bar"
+          style={{ width: `${(habit.streak / habit.goal) * 100}%` }}
+        ></div>
       </div>
+      <p>
+        Streak: {habit.streak} / {habit.goal}
+      </p>
+      <button
+        className="check-in-button"
+        onClick={incrementStreak}
+        disabled={habit.streak >= habit.goal}
+      >
+        {habit.streak >= habit.goal ? "Goal Achieved!" : "Check In"}
+      </button>
     </div>
   );
 };

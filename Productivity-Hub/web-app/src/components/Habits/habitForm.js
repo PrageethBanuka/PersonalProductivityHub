@@ -1,28 +1,35 @@
 import React, { useState } from "react";
-import { Btn } from "../Global/Button";
+import "./habitForm.css";
 
-const HabitForm = ({ onAddHabit }) => {
-  const [habitName, setHabitName] = useState("");
+const HabitForm = ({ onAdd }) => {
+  const [name, setName] = useState("");
+  const [goal, setGoal] = useState(7);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (habitName.trim()) {
-      onAddHabit({ name: habitName, streak: 0, maxStreak: 7 });
-      setHabitName("");
+    if (name.trim() !== "" && goal > 0) {
+      onAdd({ name, goal, streak: 0 });
+      setName("");
+      setGoal(7);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="habit-form">
+    <form className="habit-form" onSubmit={handleSubmit}>
       <input
         type="text"
         placeholder="Add a new habit"
-        value={habitName}
-        onChange={(e) => setHabitName(e.target.value)}
+        value={name}
+        onChange={(e) => setName(e.target.value)}
       />
-      <Btn type="submit" className="add-habit-btn">
-        + Add Habit
-      </Btn>
+      <input
+        type="number"
+        min="1"
+        value={goal}
+        onChange={(e) => setGoal(Number(e.target.value))}
+        placeholder="Goal (e.g., 7)"
+      />
+      <button type="submit">+ Add Habit</button>
     </form>
   );
 };

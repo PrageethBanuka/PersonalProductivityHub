@@ -51,7 +51,7 @@ const Navbar = () => {
               <NavLink to="/Profile" isActive={location.pathname === "/Profile"}>Profile</NavLink>
             )
           ) : (
-            <BtnLink to="/signin" isActive={location.pathname === "/Profile"}>Sign In</BtnLink>
+            <NavLink to="/signin" isActive={location.pathname === "/signin"}>Sign In</NavLink>
           )}
           <Indicator />
         </NavMenu>

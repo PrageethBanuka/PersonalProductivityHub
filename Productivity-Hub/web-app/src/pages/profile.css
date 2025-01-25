@@ -3,55 +3,110 @@ h1 {
   margin-top: 150px;
   font-size: 2rem;
   color: #333;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
   text-align: center;
 }
 .profile-container {
-    max-width: 600px;
-    margin: 5px auto;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    text-align: center;
-    height: auto;
-    margin-bottom: 50vh
-  }
+  max-width: 600px;
+  margin: 5px auto;
+  padding: 20px;
+  /* background-color: #f9f9f9; */
+  border-radius: 8px;
+  text-align: center;
+  height: auto;
+  margin-bottom: 50vh;
+  align-items: center;
+}
+
+.profile-avatar {
+  margin: 20px auto;
+}
+.profile-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.avatar-selector {
+  margin-top: 20px;
+}
+
+.avatar-options {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.avatar-option {
+  background-color: #ddd;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.avatar-option.active {
+  background-color: #007bff;
+  color: white;
+}
+
+.avatar-editor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+  width: 100%;
+  height: 300px;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
   
-  .profile-avatar {
-    margin: 20px auto;
-  }
+}
+.Preview {
+  display: none;
+}
+
+.saveAvatar {
+  position: relative;
+  top: 20px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+ 
   
-  .avatar-selector {
-    margin-top: 20px;
-  }
   
-  .avatar-options {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-  }
+  cursor: pointer;
   
-  .avatar-option {
-    background-color: #ddd;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .avatar-option.active {
-    background-color: #007bff;
-    color: white;
-  }
-  
-  .avatar-editor{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 10px;
-    width: 100%;
-    height: 400px;
-    margin-left: auto;
-    margin-right: auto;
-  }
+}
+.popup-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.popup-content {
+  margin: auto;
+  background: rgb(255, 255, 255, 0.4);
+  border-radius: 8px;
+  width: 300px;
+  padding: 5px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.EditButton {
+  display: relative;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.1);
+  margin-left: -40px;
+  margin-bottom: 10px;
+}
+.Pencil {
+  width: 15 px;
+  height: 15 px;
+}

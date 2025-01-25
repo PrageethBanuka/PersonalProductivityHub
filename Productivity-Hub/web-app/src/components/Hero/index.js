@@ -53,6 +53,7 @@ const Hero = () => {
       <br />
       <div className="Btn">
         <BtnLink to="/signup">Get Started Free</BtnLink>
+        {/* <BtnLink to="/signin">Sign In</BtnLink> */}
       </div>
 
       <div className="background" />

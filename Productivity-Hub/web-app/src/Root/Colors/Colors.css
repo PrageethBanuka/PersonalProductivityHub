@@ -1,0 +1,39 @@
+:root {
+    --background: #f9f9f9;
+    --secondory-background: #0c0c0c;
+    --text-primary: #333;
+    --text-secondary: #555;
+    --text: #999;
+    --border: #e0e0e0;
+    --button-background: #0c0c0c;
+    --button-text: #fff;
+    --nav-background: rgba(255, 255, 255, 0.1);
+    --nav-text: #808080;
+    --nav-active: #fcfcfc;
+    --link-hover: #000;
+    --error: #d9534f;
+    --success: #5cb85c;
+    --card-background: #fff;
+    --check-border:black;
+    --check-background:#ccc;
+  }
+  
+  .dark-theme {
+    --background: #1c1c1c;
+    --text-primary: #f9f9f9;
+    --text-secondary: #ccc;
+    --text: #999;
+    --border: #333;
+    --button-background: #fcfcfc;
+    --button-text: #0c0c0c;
+    --nav-background: rgba(0, 0, 0, 0.1);
+    --nav-text: #999;
+    --nav-active: #fff;
+    --link-hover: #ddd;
+    --error: #d9534f;
+    --success: #5cb85c;
+    --card-background: #2c2c2c;
+    --check-border:#fff;
+    --check-background:#333;
+  }
+  
