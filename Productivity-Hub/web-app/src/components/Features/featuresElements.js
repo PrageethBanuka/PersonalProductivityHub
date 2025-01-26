@@ -24,6 +24,7 @@ export const FeaturesSubheading = styled.p`
   max-width: 700px;
   margin-left: auto;
   margin-right: auto;
+  text-align: center;
 
   @media screen and (max-width: 768px) {
     font-size: 1rem;

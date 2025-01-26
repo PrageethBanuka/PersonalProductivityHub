@@ -1,17 +1,17 @@
 .habit-form {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-  }
-  
-  .habit-form input {
-    flex: 1;
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-  }
-  
-  .habit-form button {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.habit-form input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+/* .habit-form button {
     background-color: #007bff;
     color: white;
     border: none;
@@ -19,9 +19,8 @@
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s;
-  }
-  
-  .habit-form button:hover {
+  } */
+
+/* .habit-form button:hover {
     background-color: #0056b3;
-  }
-  
+  } */
