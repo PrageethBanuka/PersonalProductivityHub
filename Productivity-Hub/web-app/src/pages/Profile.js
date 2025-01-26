@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { BtnLink } from "../components/Global/ButtonLink";
 import { Pencil } from "lucide-react";
 import Popup from "reactjs-popup";
+import { Btn } from "../components/Global/Button";
 
 const Profile = () => {
   const [profile, setProfile] = useState({});
@@ -38,7 +39,7 @@ const Profile = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("avatar"); // Clear the avatar
     setAvatar("../../public/images/user.png"); // Reset to default avatar
-    navigate("/Home"); // Redirect to the Sign-In page
+    navigate("/"); // Redirect to the Sign-In page
   };
 
   useEffect(() => {
@@ -95,9 +96,9 @@ const Profile = () => {
           </p>
         </div>
         
-        <BtnLink onClick={handleLogout} className="logout-btn">
+        <Btn onClick={handleLogout} className="logout-btn">
           Logout
-        </BtnLink>
+        </Btn>
       </div>
     </motion.div>
   );

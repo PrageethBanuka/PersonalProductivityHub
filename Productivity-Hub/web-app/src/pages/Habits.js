@@ -5,7 +5,7 @@ import HabitForm from "../components/Habits/habitForm";
 import HabitItem from "../components/Habits/habitItem";
 import { motion } from "framer-motion";
 
-function Habit() {
+function Habits() {
   const [habits, setHabits] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -14,7 +14,7 @@ function Habit() {
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (!token) {
-      navigate("/signin"); // Redirect to login if no token
+      navigate("/signin");
     }
   }, [navigate]);
 
@@ -37,7 +37,7 @@ function Habit() {
 
   const addHabit = async (habit) => {
     try {
-      const response = await fetch("http://localhost:5001/habits", {
+      await fetch("http://localhost:5001/habits", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -45,8 +45,7 @@ function Habit() {
         },
         body: JSON.stringify(habit),
       });
-      if (!response.ok) throw new Error("Failed to create habit");
-      await fetchHabits();
+      fetchHabits();
     } catch (err) {
       setError(err.message);
     }
@@ -62,7 +61,7 @@ function Habit() {
         },
         body: JSON.stringify(updatedHabit),
       });
-      await fetchHabits();
+      fetchHabits();
     } catch (err) {
       setError(err.message);
     }
@@ -76,7 +75,7 @@ function Habit() {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
       });
-      await fetchHabits();
+      fetchHabits();
     } catch (err) {
       setError(err.message);
     }
@@ -116,4 +115,4 @@ function Habit() {
   );
 }
 
-export default Habit;
+export default Habits;

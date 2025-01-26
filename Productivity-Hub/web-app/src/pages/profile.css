@@ -63,7 +63,6 @@ h1 {
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
-  
 }
 .Preview {
   display: none;
@@ -75,11 +74,8 @@ h1 {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
- 
-  
-  
+
   cursor: pointer;
-  
 }
 .popup-overlay {
   background-color: rgba(0, 0, 0, 0.5);
@@ -109,4 +105,17 @@ h1 {
 .Pencil {
   width: 15 px;
   height: 15 px;
+}
+p {
+  text-align: justify;
+}
+.profile-details {
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+  width: 50%;
+  padding: 20px;
+  background-color: #ddd;
+  border-radius: 8px;
 }

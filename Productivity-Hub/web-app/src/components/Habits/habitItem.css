@@ -1,10 +1,12 @@
 .habit-item {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 16px;
-  margin-bottom: 12px;
   background-color: #fff;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .habit-header {
@@ -13,16 +15,60 @@
   align-items: center;
 }
 
+.habit-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.delete-button {
+  background: none;
+  border: none;
+  color: #555;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+}
+
+.delete-button:hover {
+  color: #d9534f;
+}
+
 .progress-container {
-  background: #f0f0f0;
-  border-radius: 4px;
-  overflow: hidden;
   height: 10px;
-  margin: 8px 0;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  overflow: hidden;
 }
 
 .progress-bar {
   height: 100%;
-  background-color: #4caf50;
-  transition: width 0.3s ease;
+  background-color: #5555;
+  transition: width 0.3s ease-in-out;
+}
+
+.streak-info {
+  font-size: 0.9rem;
+  color: #555;
+  text-align: center;
+}
+
+.check-in-button {
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  color: #fff;
+  background-color: #0c0c0c;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.check-in-button:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+}
+
+.check-in-button:hover:not(:disabled) {
+  background-color: #555;
 }

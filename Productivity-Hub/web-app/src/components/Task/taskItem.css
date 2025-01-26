@@ -93,11 +93,15 @@ span.completed {
 
 /* Popup entry animation */
 @keyframes fadeInScale {
-  from {
+  0% {
     opacity: 0;
     transform: scale(0.8) translateY(-50px);
   }
-  to {
+  99.9% {
+    opacity: 1;
+    transform: scale(1.05) translateY(0px);
+  }
+  100% {
     opacity: 1;
     transform: scale(1) translateY(0px);
   }
@@ -140,6 +144,7 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator {
 .Timer_ico {
   color: #555;
 }
+
 .Check_ico {
   color: #555;
 }
@@ -159,4 +164,12 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator {
   background-color: transparent;
   border: none;
   cursor: pointer;
+}
+
+.timer-btn:hover{
+  color: #007bff;
+}
+
+.delete-btn:hover{
+  color: #d9534f;
 }
