@@ -7,22 +7,37 @@ datasource db {
   url      = "file:./dev.db"
 }
 
+// User model: Represents users of the application
 model User {
-  id       Int    @id @default(autoincrement())
-  name     String
-  email    String @unique
-  username String @unique
-  password String
-  avatar   String @default("http://localhost:3000/images/user.png") // Default avatar 
-  tasks    Task[]
+  id       Int     @id @default(autoincrement()) // Unique identifier
+  name     String // User's full name
+  email    String  @unique // Unique email
+  username String  @unique // Unique username
+  password String // Hashed password
+  avatar   String  @default("http://localhost:3000/images/user.png") // Default avatar URL
+  tasks    Task[] // One-to-many relation with Task
+  habits   Habit[] // One-to-many relation with Habit
 }
 
+// Task model: Represents tasks created by users
 model Task {
-  id        Int       @id @default(autoincrement())
-  text      String
-  completed Boolean   @default(false)
-  timer     DateTime?
-  createdAt DateTime  @default(now())
-  userId    Int
-  user      User      @relation(fields: [userId], references: [id])
+  id        Int       @id @default(autoincrement()) // Unique identifier
+  text      String // Task description
+  completed Boolean   @default(false) // Completion status
+  timer     DateTime? // Optional timer for the task
+  createdAt DateTime  @default(now()) // Timestamp of task creation
+  userId    Int // Foreign key to associate with a user
+  user      User      @relation(fields: [userId], references: [id]) // Relation to User model
+}
+
+// Habit model: Represents habits tracked by users
+model Habit {
+  id        Int      @id @default(autoincrement()) // Unique identifier
+  text      String // Habit description
+  completed Boolean  @default(false) // Completion status
+  streak    Int      @default(0) // Current streak count
+  goal      Int      @default(7) // Goal in days (e.g., 7-day streak)
+  userId    Int // Foreign key to associate with a user
+  user      User     @relation(fields: [userId], references: [id]) // Relation to User model
+  createdAt DateTime @default(now()) // Timestamp of habit creation
 }
