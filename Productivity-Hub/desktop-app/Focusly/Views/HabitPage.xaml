@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Focusly.ViewModels"
+             x:Class="Focusly.Views.HabitPage"
+             Title="Habits">
+    
+    <ContentPage.BindingContext>
+        <vm:HabitViewModel />
+    </ContentPage.BindingContext>
+
+    <VerticalStackLayout Padding="30">
+        <Label Text="Your Habits" FontSize="24" HorizontalOptions="Center"/>
+        <Entry Placeholder="New Habit" />
+        <Button Text="Add Habit" Command="{Binding AddHabitCommand}" BackgroundColor="Black" TextColor="White"/>
+        <ListView ItemsSource="{Binding Habits}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" Padding="10">
+                            <Label Text="{Binding Text}" FontSize="18"/>
+                            <ProgressBar Progress="{Binding Streak, Converter={StaticResource StreakToProgressConverter}}" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </VerticalStackLayout>
+
+</ContentPage>
