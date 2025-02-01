@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Focusly")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+20265fe3e7119c7b5d2e7392da27cbbbdcc12062")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+f2c1ebe557192925719f39a118762eeb8f043c07")]
 [assembly: System.Reflection.AssemblyProductAttribute("Focusly")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Focusly")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
