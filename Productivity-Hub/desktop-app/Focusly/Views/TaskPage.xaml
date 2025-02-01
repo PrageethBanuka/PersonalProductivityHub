@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Focusly.ViewModels"
+             x:Class="Focusly.Views.TaskPage"
+             Title="Tasks">
+    
+    <ContentPage.BindingContext>
+        <vm:TaskViewModel />
+    </ContentPage.BindingContext>
+
+    <VerticalStackLayout Padding="30">
+        <Label Text="Your Tasks" FontSize="24" HorizontalOptions="Center"/>
+        <Entry Placeholder="New Task" />
+        <Button Text="Add Task" Command="{Binding AddTaskCommand}" BackgroundColor="Black" TextColor="White"/>
+        <ListView ItemsSource="{Binding Tasks}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" Padding="10">
+                            <Label Text="{Binding Text}" FontSize="18"/>
+                            <Switch IsToggled="{Binding Completed}" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </VerticalStackLayout>
+
+</ContentPage>
