@@ -1,0 +1,13 @@
+is_global = true
+build_property.TargetFramework = net8.0-maccatalyst14.2
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Focusly
+build_property.ProjectDir = /Users/banukarajapaksha/Developer/GUI_PROJECT/Productivity-Hub/desktop-app/Focusly/
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 

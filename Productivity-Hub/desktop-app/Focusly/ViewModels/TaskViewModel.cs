@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Microsoft.Maui.Storage;
+using System.Diagnostics;
 
 namespace Focusly.ViewModels
 {
@@ -28,25 +29,43 @@ namespace Focusly.ViewModels
 
         private async Task LoadTasks()
         {
-            string token = Preferences.Get("auth_token", string.Empty);
-            if (string.IsNullOrEmpty(token)) return;
+            try
+            {
+                string token = Preferences.Get("auth_token", string.Empty);
+                if (string.IsNullOrEmpty(token))
+                {
+                    Debug.WriteLine("⚠ No auth token found.");
+                    return;
+                }
 
-            var tasks = await _apiService.GetTasksAsync(token);
-            Tasks.Clear();
-            foreach (var task in tasks)
-                Tasks.Add(task);
+                var tasks = await _apiService.GetTasksAsync(token);
+                Tasks.Clear();
+                foreach (var task in tasks)
+                    Tasks.Add(task);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"❌ Failed to load tasks: {ex.Message}");
+            }
         }
 
         private async Task AddTask(string text)
         {
             if (string.IsNullOrEmpty(text)) return;
 
-            string token = Preferences.Get("auth_token", string.Empty);
-            if (string.IsNullOrEmpty(token)) return;
+            try
+            {
+                string token = Preferences.Get("auth_token", string.Empty);
+                if (string.IsNullOrEmpty(token)) return;
 
-            var newTask = new TaskModel { Text = text, Completed = false, CreatedAt = DateTime.UtcNow };
-            if (await _apiService.AddTaskAsync(newTask, token))
-                Tasks.Add(newTask);
+                var newTask = new TaskModel { Text = text, Completed = false, CreatedAt = DateTime.UtcNow };
+                if (await _apiService.AddTaskAsync(newTask, token))
+                    Tasks.Add(newTask);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"❌ Failed to add task: {ex.Message}");
+            }
         }
 
         private void Logout()

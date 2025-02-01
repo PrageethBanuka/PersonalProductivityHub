@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+// using DotNet.Meteor.HotReload.Plugin;
 
 namespace Focusly;
 
@@ -16,7 +17,9 @@ public static class MauiProgram
 			});
 
 #if DEBUG
+		// builder.EnableHotReload();
 		builder.Logging.AddDebug();
+
 #endif
 
 		return builder.Build();
