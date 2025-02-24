@@ -17,7 +17,7 @@ import { AuthProvider } from "./context/authProvider"; // Add AuthProvider
 const Home = lazy(() => import("./pages"));
 const Task = lazy(() => import("./pages/Task"));
 const Habits = lazy(() => import("./pages/Habits"));
-const AIInsights = lazy(() => import("./pages/AIInsights"));
+const Insights = lazy(() => import("./pages/Insights"));
 const Pricing = lazy(() => import("./pages/Pricing"));
 const SignUp = lazy(() => import("./pages/signup"));
 const SignIn = lazy(() => import("./pages/signin"));
@@ -113,7 +113,7 @@ function App() {
               }
             />
             <Route path="/Habits" element={<Habits />} />
-            <Route path="/AIInsights" element={<AIInsights />} />
+            <Route path="/Insights" element={<Insights />} />
             <Route path="/Pricing" element={<Pricing />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/signin" element={<SignIn onLogin={handleLogin} />} />

@@ -18,9 +18,10 @@ export const updateTask = (id, updates) =>
   axios.patch(`${API_URL}/tasks/${id}`, updates);
 export const deleteTask = (id) => axios.delete(`${API_URL}/tasks/${id}`);
 
-export const fetchProfile = () => axios.get(`${API_URL}/user/profile`, {
-  headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-});
+export const fetchProfile = () =>
+  axios.get(`${API_URL}/user/profile`, {
+    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+  });
 
 export const updateAvatar = (avatar) =>
   axios.put(
@@ -28,3 +29,10 @@ export const updateAvatar = (avatar) =>
     { avatar },
     { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
   );
+
+export const fetchAIInsights = async () => {
+  const response = await axios.get(`${API_URL}/insights`, {
+    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+  });
+  return response.data;
+};
