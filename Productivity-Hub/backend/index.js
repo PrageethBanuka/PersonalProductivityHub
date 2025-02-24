@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const { PrismaClient } = require("@prisma/client");
 const dotenv = require("dotenv");
+const insightsRoute = require("./models/insights");
 
 dotenv.config(); // Load environment variables from .env file
 const app = express();
@@ -17,6 +18,13 @@ app.use("/auth", require("./routes/auth")(prisma)); // Authentication routes
 app.use("/tasks", require("./models/tasks")(prisma)); // Tasks routes
 app.use("/user", require("./routes/user")(prisma));
 app.use("/habits", require("./models/habits")(prisma));
+app.use("/insights", insightsRoute);
+app.get("/", (req, res) => {
+  res.send("Focusly API is Running 🚀");
+});
+app.get("/auth", (req, res) => {
+  res.send("Auth Success 🚀");
+});
 
 
 // New route to fetch user profile data
