@@ -44,9 +44,9 @@ const HabitItem = ({ habit, onUpdate, onDelete }) => {
         className="check-in-button"
         onClick={incrementStreak}
         disabled={habit.streak >= habit.goal}
-        aria-label={habit.streak >= habit.goal ? "Goal Achieved!" : "Check In"}
+        aria-label={habit.streak >= habit.goal ? "Succeed!" : "Check In"}
       >
-        {habit.streak >= habit.goal ? "Goal Achieved!" : "Check In"}
+        {habit.streak >= habit.goal ? "Succeed!" : "Check In"}
       </Btn>
     </div>
   );

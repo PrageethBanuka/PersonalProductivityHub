@@ -1,0 +1,154 @@
+h1 {
+    margin-top: 80px;
+    text-align: center;
+}
+
+.insights-container {
+    max-width: 800px;
+    margin: 10px auto;
+    margin-top: 10px;
+    margin-bottom: 200px;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.insights-title {
+    font-size: 26px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.summary-section {
+    padding: 20px;
+    border-radius: 10px;
+    background: #f9f9f9;
+    margin-bottom: 20px;
+}
+
+.summary-title {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.summary-stats {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.stat {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.stat span {
+    display: block;
+    font-size: 28px;
+    font-weight: bold;
+    color: #0c0c0c;
+}
+
+/* ✅ Center the bar chart and hide grid lines */
+.chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+    height: 250px;
+}
+
+canvas {
+    background: transparent !important;
+}
+
+/* Hide chart grid lines & ticks */
+.chart-container .chartjs-render-monitor {
+    position: relative;
+}
+
+.chart-container .chartjs-render-monitor .chartjs-axis {
+    display: none !important;
+}
+
+.chart-container .chartjs-render-monitor .chartjs-grid-line {
+    stroke: transparent !important;
+}
+
+/* ✅ Chat Section */
+.chat-box {
+    margin-top: 20px;
+}
+
+.chat-input {
+    width: 100%;
+    height: 80px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    resize: none;
+}
+
+.chat-btn {
+    width: 100%;
+    margin-top: 10px;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    background: #0c0c0c;
+    color: #ffffff;
+    transition: background 0.3s ease;
+    cursor: none;
+}
+
+.chat-btn:hover {
+    background: #222;
+}
+
+.ai-response {
+    margin-top: 20px;
+    padding: 15px;
+    background: #f0f0f0;
+    border-radius: 8px;
+    font-size: 16px;
+    text-align: left;
+}
+
+.ai-response h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* ✅ Style AI Response List */
+.ai-response-list {
+    text-align: left;
+    padding-left: 20px;
+    
+}
+
+.ai-response-list li {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 8px;
+    opacity: 0;
+    
+}
+
+/* ✅ Different styling for numbered list */
+.ai-response-list .numbered {
+    color: #0c0c0c;
+    list-style-type: none;
+    margin-left: 15px;
+}

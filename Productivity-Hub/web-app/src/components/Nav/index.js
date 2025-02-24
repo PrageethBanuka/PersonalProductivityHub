@@ -36,7 +36,7 @@ const Navbar = () => {
           <NavLink to="/Habits" isActive={location.pathname === "/Habits"}>
             Habits
           </NavLink>
-          <NavLink to="/AIInsights" isActive={location.pathname === "/AIInsights"}>
+          <NavLink to="/Insights" isActive={location.pathname === "/Insights"}>
             AI Insights
           </NavLink>
           <NavLink to="/Pricing" isActive={location.pathname === "/Pricing"}>
