@@ -9,7 +9,7 @@ namespace Focusly.Services
     public class ApiService
     {
         private readonly HttpClient _httpClient;
-        private const string BaseUrl = "http://localhost:5001/";
+        private const string BaseUrl = "http://localhost:5001";
 
         public ApiService(HttpClient httpClient)
         {
@@ -19,8 +19,12 @@ namespace Focusly.Services
 
         private void SetAuthorization(string token)
         {
+
+            // Debug.WriteLine($"Bearer Token: {token}");
             if (!string.IsNullOrEmpty(token))
                 _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            else
+                _httpClient.DefaultRequestHeaders.Authorization = null;
         }
 
         public async Task<List<TaskModel>> GetTasksAsync(string token)
@@ -28,6 +32,7 @@ namespace Focusly.Services
             try
             {
                 SetAuthorization(token);
+                // Debug.WriteLine($"Saved token: {token}");
                 return await _httpClient.GetFromJsonAsync<List<TaskModel>>($"{BaseUrl}/tasks") ?? new List<TaskModel>();
             }
             catch (Exception ex)
@@ -57,7 +62,20 @@ namespace Focusly.Services
             {
                 SetAuthorization(token);
                 var response = await _httpClient.PostAsJsonAsync($"{BaseUrl}/tasks", task);
-                return response.IsSuccessStatusCode;
+                Debug.WriteLine($"API Response Status: {response.StatusCode}");
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var createdTask = await response.Content.ReadFromJsonAsync<TaskModel>();
+                    task.Id = createdTask.Id; // 🔥 Get the correct ID from backend
+                    Debug.WriteLine($"✅ Task Created with ID: {task.Id}");
+                    return true;
+                }
+                else
+                {
+                    Debug.WriteLine("❌ Task not added");
+                    return false;
+                }
             }
             catch (Exception ex)
             {
@@ -77,6 +95,39 @@ namespace Focusly.Services
             catch (Exception ex)
             {
                 Debug.WriteLine($"❌ Error adding habit: {ex.Message}");
+                return false;
+            }
+        }
+        public async Task<bool> DeleteTaskAsync(TaskModel task, string token)
+        {
+            try
+            {
+                // Ensure your API base address is set
+                var request = new HttpRequestMessage(HttpMethod.Delete, $"{BaseUrl}/tasks/{task.Id}")  // Replace with the correct relative URI
+                {
+                    Headers =
+            {
+                Authorization = new AuthenticationHeaderValue("Bearer", token)  // Attach the token for authentication
+            }
+                };
+
+                var response = await _httpClient.SendAsync(request);  // Send the delete request
+                if (response.IsSuccessStatusCode)
+                {
+                    // Task deleted successfully
+                    return true;
+                }
+                else
+                {
+                    // Something went wrong
+                    Debug.WriteLine($"❌ Failed to delete task. Status Code: {response.StatusCode}");
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle any exceptions that may occur
+                Debug.WriteLine($"❌ Error deleting task: {ex.Message}");
                 return false;
             }
         }

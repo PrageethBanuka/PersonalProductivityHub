@@ -10,4 +10,10 @@ public partial class HabitPage : ContentPage
 		InitializeComponent();
 		BindingContext = new HabitViewModel();
 	}
+	protected override void OnAppearing(){
+		base.OnAppearing();
+		((HabitViewModel)BindingContext).LoadHabitsCommand.Execute(null);
+	}
+
+
 }

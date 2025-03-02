@@ -4,6 +4,7 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:vm="clr-namespace:Focusly.ViewModels"
+    x:Name="Taskpage"
     Title="Tasks">
 
     <ContentPage.BindingContext>
@@ -13,28 +14,69 @@
     <VerticalStackLayout
         Margin="20"
         Padding="30"
-        BackgroundColor="#f9f9f9">
+        BackgroundColor="#f9f9f9"
+        VerticalOptions="FillAndExpand">
         <HorizontalStackLayout HorizontalOptions="Center">
             <Entry
-                Margin="20"
-                Placeholder="New Task"
-                WidthRequest="400" />
+                Margin="10"
+                BackgroundColor="#ffffff"
+                FontSize="16"
+                HeightRequest="50"
+                Placeholder="Enter new task"
+                PlaceholderColor="#999"
+                Text="{Binding NewTaskText}"
+                WidthRequest="350" />
             <Button
+                Padding="22,10"
                 BackgroundColor="Black"
                 Command="{Binding AddTaskCommand}"
+                HeightRequest="25"
                 Text="+Add Task"
-                TextColor="White" 
-                Padding ="22,10"
-                HeightRequest ="25"/>
+                TextColor="White" />
         </HorizontalStackLayout>
 
-        <ListView ItemsSource="{Binding Tasks}">
+        <ListView
+            HasUnevenRows="True"
+            HeightRequest="500"
+            ItemsSource="{Binding Tasks}"
+            VerticalOptions="FillAndExpand">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout Padding="10" Orientation="Horizontal">
-                            <Label FontSize="18" Text="{Binding Text}" />
-                            <Switch IsToggled="{Binding Completed}" />
+                        <StackLayout
+                            Padding="20"
+                            HorizontalOptions="FillAndExpand"
+                            Orientation="Horizontal"
+                            Spacing="20"
+                            VerticalOptions="CenterAndExpand">
+                            <CheckBox IsChecked="{Binding Completed}" VerticalOptions="Center" />
+                            <Label
+                                FontSize="18"
+                                HorizontalOptions="StartAndExpand"
+                                Text="{Binding Text}"
+                                VerticalOptions="Center" />
+
+                            <Label
+                                FontSize="14"
+                                HorizontalOptions="End"
+                                Text="{Binding RemainingTime}"
+                                VerticalOptions="Center" />
+                            <Button
+                                BackgroundColor="Black"
+                                Command="{Binding BindingContext.ShowTimerPopupCommand, Source={x:Reference Name=Taskpage}}"
+                                CommandParameter="{Binding}"
+                                Text="Set Timer"
+                                TextColor="White" />
+                            <!--  Delete Button  -->
+                            <Button
+                                BackgroundColor="Transparent"
+                                Command="{Binding BindingContext.DeleteTaskCommand, Source={x:Reference Name=Taskpage}}"
+                                CommandParameter="{Binding .}"
+                                Text="X"
+                                TextColor="Gray"
+                                WidthRequest="20" />
+
+
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>

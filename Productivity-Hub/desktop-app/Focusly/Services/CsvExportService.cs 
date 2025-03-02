@@ -1,0 +1,23 @@
+using System.Text;
+
+namespace Focusly.Services
+{
+    public class CsvExportService
+    {
+        public async Task ExportTasksAsync(List<TaskModel> tasks)
+        {
+            var csv = new StringBuilder();
+            csv.AppendLine("Task,Completed");
+
+            foreach (var task in tasks)
+            {
+                csv.AppendLine($"{task.Text},{task.Completed}");
+            }
+
+            var filePath = Path.Combine(FileSystem.Current.AppDataDirectory, "Tasks.csv");
+            await File.WriteAllTextAsync(filePath, csv.ToString());
+
+            await Shell.Current.DisplayAlert("Exported", "Tasks exported successfully.", "OK");
+        }
+    }
+}

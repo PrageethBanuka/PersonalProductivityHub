@@ -1,73 +1,82 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Focusly.Views.LoginPage"
-             xmlns:vm="clr-namespace:Focusly.ViewModels"
-             Title="Login"
-             Background="#fcfcfc">
-       <ContentPage.BindingContext>
-              <vm:LoginViewModel/>
-       </ContentPage.BindingContext>
+<ContentPage
+    x:Class="Focusly.Views.LoginPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:Focusly.ViewModels"
+    Title="Login"
+    Background="#fcfcfc">
+    <ContentPage.BindingContext>
+        <vm:LoginViewModel />
+    </ContentPage.BindingContext>
 
-       <Grid x:Name="MainContent"
-             IsVisible="True"
-             Padding="20">
-              <VerticalStackLayout>
-                     <Grid>
-                            <Image Source="logo.png"
-                                   WidthRequest="150"
-                                   HeightRequest="150"/>
-                     </Grid>
-                     <BoxView HeightRequest="0.5"
-                              BackgroundColor="#FF5F5F5F"
-                              Margin="0,2"/>
+    <Grid
+        x:Name="MainContent"
+        Padding="20"
+        IsVisible="True">
+        <VerticalStackLayout>
+            <Grid>
+                <Image
+                    HeightRequest="150"
+                    Source="logo.png"
+                    WidthRequest="150" />
+            </Grid>
+            <BoxView
+                Margin="0,2"
+                BackgroundColor="#FF5F5F5F"
+                HeightRequest="0.5" />
 
-                     <Frame Padding="32"
-                            Margin="0,100"
-                            BorderColor="White"
-                            BackgroundColor="#ffffff"
-                            HasShadow="True"
-                            CornerRadius="8"
-                            WidthRequest="400"
-                            HorizontalOptions="Center"
-                            VerticalOptions="CenterAndExpand">
-                            <Frame.Shadow>
-                                   <Shadow Brush="black"
-                                           Opacity="0.1"
-                                           Radius="10"
-                                           Offset="4,8"/>
-                            </Frame.Shadow>
+            <Frame
+                Margin="0,100"
+                Padding="32"
+                BackgroundColor="#ffffff"
+                BorderColor="White"
+                CornerRadius="8"
+                HasShadow="True"
+                HorizontalOptions="Center"
+                VerticalOptions="CenterAndExpand"
+                WidthRequest="400">
+                <Frame.Shadow>
+                    <Shadow
+                        Brush="black"
+                        Opacity="0.1"
+                        Radius="10"
+                        Offset="4,8" />
+                </Frame.Shadow>
 
-                            <VerticalStackLayout>
-                                   <Label Text="Sign In"
-                                          FontSize="24"
-                                          FontAttributes="Bold"
-                                          HorizontalTextAlignment="Center"
-                                          TextColor="Black"/>
-                                   <VerticalStackLayout Margin="0,20"
-                                                        Spacing="15">
-                                          <Entry TextColor="Black"
-                                                 Placeholder="Email address"
-                                                 Text="{Binding Email}"
-                                                 Keyboard="Email"
-                                                 Background="#fcfcfc"/>
-                                          <Entry TextColor="Black"
-                                                 Placeholder="Password"
-                                                 Text="{Binding Password}"
-                                                 IsPassword="True"
-                                                 Background="#fcfcfc"/>
-                                          <Button Text="Sign In"
-                                                  Command="{Binding LoginCommand}"/>
-                                   </VerticalStackLayout>
-                                   <Label Text="Don’t have an account?"
-                                          HorizontalTextAlignment="Center"
-                                          TextColor="#555"/>
-                                   <Button Text="Sign up"
-                                           TextColor="#0c0c0c"
-                                           BackgroundColor="Transparent"/>
-                            </VerticalStackLayout>
-                     </Frame>
-              </VerticalStackLayout>
-       </Grid>
+                <VerticalStackLayout>
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="24"
+                        HorizontalTextAlignment="Center"
+                        Text="Sign In"
+                        TextColor="Black" />
+                    <VerticalStackLayout Margin="0,20" Spacing="15">
+                        <Entry
+                            Background="#fcfcfc"
+                            Keyboard="Email"
+                            Placeholder="Email address"
+                            Text="{Binding Email}"
+                            TextColor="Black" />
+                        <Entry
+                            Background="#fcfcfc"
+                            IsPassword="True"
+                            Placeholder="Password"
+                            Text="{Binding Password}"
+                            TextColor="Black" />
+                        <Button Command="{Binding LoginCommand}" Text="Sign In" />
+                    </VerticalStackLayout>
+                    <Label
+                        HorizontalTextAlignment="Center"
+                        Text="Don’t have an account?"
+                        TextColor="#555" />
+                    <Button
+                        BackgroundColor="Transparent"
+                        Text="Sign up"
+                        TextColor="#0c0c0c" />
+                </VerticalStackLayout>
+            </Frame>
+        </VerticalStackLayout>
+    </Grid>
 
 </ContentPage>

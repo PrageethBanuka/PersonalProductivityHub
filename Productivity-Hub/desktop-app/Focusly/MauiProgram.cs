@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using CommunityToolkit.Maui;
 // using DotNet.Meteor.HotReload.Plugin;
 
 namespace Focusly;
@@ -10,6 +11,7 @@ public static class MauiProgram
 		var builder = MauiApp.CreateBuilder();
 		builder
 			.UseMauiApp<App>()
+			.UseMauiCommunityToolkit()
 			.ConfigureFonts(fonts =>
 			{
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -17,7 +19,7 @@ public static class MauiProgram
 			});
 
 #if DEBUG
-		// builder.EnableHotReload();
+		//builder.EnableHotReload();
 		builder.Logging.AddDebug();
 
 #endif

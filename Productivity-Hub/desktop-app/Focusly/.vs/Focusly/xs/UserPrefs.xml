@@ -1,19 +1,21 @@
 ﻿<Properties StartupConfiguration="{FF22FB8B-18B7-4E0E-9374-C9A58B4E6936}|Default">
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <Xamarin.Addins.Core.Project ActiveDebugTarget="MyAppleMacCatalystID" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Models/HabitModel.cs">
     <Files>
-      <File FileName="App.xaml" Line="16" Column="28" />
-      <File FileName="MauiProgram.cs" Line="13" Column="5" />
+      <File FileName="App.xaml" />
+      <File FileName="MauiProgram.cs" />
       <File FileName="Models/HabitModel.cs" Line="13" Column="2" />
-      <File FileName="Models/TaskModel.cs" Line="1" Column="1" />
+      <File FileName="Models/TaskModel.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="Focusly" expanded="True">
+          <Node name="Focusly">
             <Node name="Focusly">
-              <Node name="ConnectedServicesFolder" selected="True" />
               <Node name="Models" expanded="True" />
             </Node>
           </Node>
@@ -21,10 +23,7 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <Xamarin.Addins.Core.Project ActiveDebugTarget="MyAppleMacCatalystID" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.Focusly PreferredExecutionTarget="net8.0-maccatalyst" />
+  <MultiItemStartupConfigurations />
 </Properties>
