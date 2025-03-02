@@ -65,25 +65,39 @@
 			Djz1xD4SwPMZq1hZL9bEOLCl/toWbMVAIx36dcQ51oE=
 			</data>
 		</dict>
+		<key>MonoBundle/CommunityToolkit.Maui.Core.dll</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			g2i/CDG5lhVfxwdyCHEZGzCbVTKMaUipkIUQ9p0O1kA=
+			</data>
+		</dict>
+		<key>MonoBundle/CommunityToolkit.Maui.dll</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			2yx2Dj5qGkk96kbQ+aEN5y7qPOFwlciseRgRCjfvY6U=
+			</data>
+		</dict>
 		<key>MonoBundle/Focusly.dll</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			uVlY0iZemhzVr3+qWXDXCVqa4Uudbjclu8WZZOToI9I=
+			Pkq6r699P7/ZZ7uC5BsqroEa6Ov4tK8IgserKyzuVhA=
 			</data>
 		</dict>
 		<key>MonoBundle/Focusly.pdb</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			XNth3KNihocNtdVFxhl6HKOSmZNE9Dh9Wg5LZcsj/50=
+			Sao/+28topZsoTtXmCe+7I4E4T68BhYDBXEz1IQBVY8=
 			</data>
 		</dict>
 		<key>MonoBundle/Microsoft.Bcl.AsyncInterfaces.dll</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			EcDo/GQZkQrOT1Xd0jMPE3NwT5lsMq5DNsPxHVidLDQ=
+			KZ3flJA15S5HWHMsICAp4siaFhdNg5BL7wzAQgXgl7c=
 			</data>
 		</dict>
 		<key>MonoBundle/Microsoft.CSharp.dll</key>
@@ -100,18 +114,25 @@
 			InIYVLa5HoSLmU3oQs/uyzAXgn7HwIZ90GM/fsUVqMg=
 			</data>
 		</dict>
+		<key>MonoBundle/Microsoft.Data.Sqlite.dll</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Eh7novOZVGRaBWTxtG1XpdOYEUlvdMQM+pbBec3KZto=
+			</data>
+		</dict>
 		<key>MonoBundle/Microsoft.EntityFrameworkCore.Abstractions.dll</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			mCTw+b7EP1MtfHQcWr1ewhmA9fr4IWRzHevBGxC3xec=
+			CpdbJvTkdHUux8rCMb9NolOvhnK44F6FIamkDPq9EZA=
 			</data>
 		</dict>
 		<key>MonoBundle/Microsoft.EntityFrameworkCore.Relational.dll</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			1zgMIGompHpf7kV3LgcvJnVlcBZJxvO6rFmUKhahMNM=
+			FdCR8w88EWcIT+C7uc7nHSoN29Tj01Mfse1teqs1Mfk=
 			</data>
 		</dict>
 		<key>MonoBundle/Microsoft.EntityFrameworkCore.SqlServer.dll</key>
@@ -121,32 +142,39 @@
 			CJDf+6Zjt0FK312Tnylh6oFd95geANBmQ62HSZep8yE=
 			</data>
 		</dict>
+		<key>MonoBundle/Microsoft.EntityFrameworkCore.Sqlite.dll</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			3RIMuBpnBjdzmAisYH/er8UkzwRioQq7UEdPIYH60d4=
+			</data>
+		</dict>
 		<key>MonoBundle/Microsoft.EntityFrameworkCore.dll</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			h1bxCPPUhGVwXAjhzeU2Cw48v7trzj6CmavBKmDDVqc=
+			Yivxs57OhhJf5Q0vwDissFf6Lzup5lBIrT/LNDhP6yc=
 			</data>
 		</dict>
 		<key>MonoBundle/Microsoft.Extensions.Caching.Abstractions.dll</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			xDp3eIJc3tJRBJh9RPAXbBQAJFWSfsfwdXTOmvmBaC0=
+			WTxF2yw3hnmzn5A1t93fjNRIFFQTj4P6VQB5fBx4iZo=
 			</data>
 		</dict>
 		<key>MonoBundle/Microsoft.Extensions.Caching.Memory.dll</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			8JeYAYvDjb5FNUvdr/UGArgFxwLsMOly+nSYE74Pfdg=
+			eI+rTgQsLdLRaSmh1BQXq61jSCVA5kN4Hj4eqno+YN0=
 			</data>
 		</dict>
 		<key>MonoBundle/Microsoft.Extensions.Configuration.Abstractions.dll</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			yIkFZbLCPW/voPCNLwjRjlLmSyN/TPgXsZC49r7qgCo=
+			+Kyya7ibwQwCxdE3AExbx2wMaZQYRpEOU9pupByavIA=
 			</data>
 		</dict>
 		<key>MonoBundle/Microsoft.Extensions.Configuration.dll</key>
@@ -160,21 +188,28 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			0+7dXemPLNpQiKkqe+Gj80WTGq+aHrR0C2supM/5pK8=
+			JODkPfnbChd2O27Z2Xsrh6PoNIPosrF9soLkRp1Uwcw=
 			</data>
 		</dict>
 		<key>MonoBundle/Microsoft.Extensions.DependencyInjection.dll</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			98qpTBLS90fbzcI0CL/WCDo/kdiZ1t0i5zIdYCQbzEk=
+			wxn4jg/e88orL2bjMnGIaL/L5Tkle909WlObnNo0fFE=
+			</data>
+		</dict>
+		<key>MonoBundle/Microsoft.Extensions.DependencyModel.dll</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			D7YMdxRG6ywyuBccsl6rPMuUAPyXD40tRpV/ChHSdrU=
 			</data>
 		</dict>
 		<key>MonoBundle/Microsoft.Extensions.Logging.Abstractions.dll</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			9Y/VyDa/MQuAFW2zqjTrQ4qrlZNNIk+CjZXv1R+RYdk=
+			jKAspcSUAYdLiv6vdPgmGVDqTSF+CUQDXRUeGKGnsms=
 			</data>
 		</dict>
 		<key>MonoBundle/Microsoft.Extensions.Logging.Debug.dll</key>
@@ -188,21 +223,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			zToTlCfwxTzX03Njuq72f8W7xrgOmB2xT7vGJ5vS1RM=
+			HdXafXsO1U49TsMeZ1ZOQ3DAU/xR0iSKeZJHza769Bw=
 			</data>
 		</dict>
 		<key>MonoBundle/Microsoft.Extensions.Options.dll</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			pREv2kviS8qtZIy0wsGyG0HMkjmwjce8uCgsnTGaP+k=
+			PA6GPx7ksniMinI13Tk+XEplExS1VQosrMKoLqbaI0c=
 			</data>
 		</dict>
 		<key>MonoBundle/Microsoft.Extensions.Primitives.dll</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			IFlCJEFqK0Z8PaIsGmrdHzGqBaDSrUli4K52TnFwZHo=
+			F6BfnjHqAS2Z2NDuinaV32oa3JSz3TPg6FWP89eIvkk=
 			</data>
 		</dict>
 		<key>MonoBundle/Microsoft.Identity.Client.Extensions.Msal.dll</key>
@@ -357,6 +392,27 @@
 			<key>hash2</key>
 			<data>
 			yklb9shrfwktYkkoEBmFqUFTLRSdzYrP6hcPilO+iFA=
+			</data>
+		</dict>
+		<key>MonoBundle/SQLitePCLRaw.batteries_v2.dll</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			CYGx4eJN3xjkLQ9s6noxjnNbh1+Yez4wb1VRGHJrJKc=
+			</data>
+		</dict>
+		<key>MonoBundle/SQLitePCLRaw.core.dll</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			28/QTpWu+p7w3K1M0gAJsBjdPSlDyMzz9AWXue2RYbg=
+			</data>
+		</dict>
+		<key>MonoBundle/SQLitePCLRaw.provider.e_sqlite3.dll</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			MN1q54mSgfm3FaufjOsdZ7bUyNdqIdqq/CFZVfzzfww=
 			</data>
 		</dict>
 		<key>MonoBundle/System.AppContext.dll</key>
@@ -524,7 +580,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Mv4736XUynVQWqBaSAFw/4e8JPQdVF+ilMfgOJ2L2hM=
+			0TGbc+wH8SKvz1ijvglLrNqlaIeRLK1nWTcCt3xoejE=
 			</data>
 		</dict>
 		<key>MonoBundle/System.Diagnostics.FileVersionInfo.dll</key>
@@ -720,7 +776,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Gjl+v0O1VeAxiariOHn01N4TK8HQ98RvfiiEIEFIs0M=
+			HvLm+Mr8hyFRN5ZsbHMflAaTLCJKGauYs6R0VjHp9Zo=
 			</data>
 		</dict>
 		<key>MonoBundle/System.IO.Pipes.AccessControl.dll</key>
@@ -1350,14 +1406,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			a+ZR/NgakqtLDhFX5G/xP2m2blgd7xSV92cUflGhr6k=
+			G7etY3th5tN4ScCSoPw0QGYuQjCFAXxVmZAa2yx/JhM=
 			</data>
 		</dict>
 		<key>MonoBundle/System.Text.Json.dll</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			eT1kaiRA5Cf3iXdAs6ufH2krMbQZsyVOes4XJ1uqhhM=
+			usFQM0TpklB0j7v+f9ktkxlMl8sXEJCciPp+1eILkY8=
 			</data>
 		</dict>
 		<key>MonoBundle/System.Text.RegularExpressions.dll</key>
@@ -1567,7 +1623,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			TAq8lo7si7OIzxU+BOinjolwPYrGi/VySseeG0BDs6M=
+			03C3DYXyvFAOyD6fm1RanyYoeX5gdGfvAGgsqBjJFUQ=
 			</data>
 		</dict>
 		<key>MonoBundle/ar/Microsoft.Maui.Controls.resources.dll</key>
@@ -1694,6 +1750,13 @@
 			<key>hash2</key>
 			<data>
 			mB+rfjUPmBvG4t0cXauTh5ZjZQC3ENXzkZ9SGH2KtCQ=
+			</data>
+		</dict>
+		<key>MonoBundle/libe_sqlite3.dylib</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			9Lnr0MHCWDpPn6v3oBeCrNQ5vnuUMF18ZpD4oSmXzuM=
 			</data>
 		</dict>
 		<key>MonoBundle/ms/Microsoft.Maui.Controls.resources.dll</key>

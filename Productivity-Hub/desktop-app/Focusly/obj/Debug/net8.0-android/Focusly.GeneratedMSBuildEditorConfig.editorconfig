@@ -4,12 +4,20 @@ build_property.EnableSingleFileAnalyzer = true
 build_property.EnableTrimAnalyzer = false
 build_property.IncludeAllContentForSelfExtract = 
 build_property.TargetFramework = net8.0-android
+build_property.TargetFramework = net8.0-android
+build_property.TargetPlatformMinVersion = 
 build_property.TargetPlatformMinVersion = 
 build_property.UsingMicrosoftNETSdkWeb = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
 build_property.ProjectTypeGuids = 
 build_property.InvariantGlobalization = false
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
 build_property.PlatformNeutralAssembly = 
 build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Focusly
 build_property.ProjectDir = /Users/banukarajapaksha/Developer/GUI_PROJECT/Productivity-Hub/desktop-app/Focusly/
@@ -46,6 +54,12 @@ build_metadata.AdditionalFiles.ManifestResourceName = Focusly.Views.HabitPage.xa
 build_metadata.AdditionalFiles.TargetPath = Views/HabitPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views/HabitPage.xaml
 
+[/Users/banukarajapaksha/Developer/GUI_PROJECT/Productivity-Hub/desktop-app/Focusly/Views/InsightsPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Focusly.Views.InsightsPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/InsightsPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/InsightsPage.xaml
+
 [/Users/banukarajapaksha/Developer/GUI_PROJECT/Productivity-Hub/desktop-app/Focusly/Views/LoginPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Focusly.Views.LoginPage.xaml
@@ -57,3 +71,9 @@ build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Focusly.Views.TaskPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views/TaskPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views/TaskPage.xaml
+
+[/Users/banukarajapaksha/Developer/GUI_PROJECT/Productivity-Hub/desktop-app/Focusly/Views/TimerPopup.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Focusly.Views.TimerPopup.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/TimerPopup.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/TimerPopup.xaml

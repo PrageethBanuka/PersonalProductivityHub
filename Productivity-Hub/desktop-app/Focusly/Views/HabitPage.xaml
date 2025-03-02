@@ -11,9 +11,16 @@
 
     <VerticalStackLayout Padding="30">
         <Label Text="Your Habits" FontSize="24" HorizontalOptions="Center"/>
-        <Entry Placeholder="New Habit" />
-        <Button Text="Add Habit" Command="{Binding AddHabitCommand}" BackgroundColor="Black" TextColor="White"/>
-        <ListView ItemsSource="{Binding Habits}">
+        
+        <!-- Habit Input -->
+        <HorizontalStackLayout HorizontalOptions="Center">
+            <Entry Placeholder="New Habit" Text="{Binding NewHabitText}" WidthRequest="250"/>
+            <Button Text="Add Habit" Command="{Binding AddHabitCommand}" BackgroundColor="Black" TextColor="White"/>
+        </HorizontalStackLayout>
+
+        <!-- Habit List -->
+        <ListView ItemsSource="{Binding Habits}"
+            HeightRequest ="1000">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
