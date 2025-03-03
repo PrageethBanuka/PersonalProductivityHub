@@ -3,6 +3,7 @@ using System.Net.Http.Json;
 using Focusly.Models;
 using System.Text.Json;
 using System.Diagnostics;
+using Newtonsoft.Json;
 
 namespace Focusly.Services
 {
@@ -25,6 +26,55 @@ namespace Focusly.Services
                 _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             else
                 _httpClient.DefaultRequestHeaders.Authorization = null;
+        }
+        public async Task<UserModel?> GetCurrentUserAsync(string token)
+        {
+            Debug.WriteLine("getting_currentUser");
+            try
+            {
+                SetAuthorization(token);
+                var user = await _httpClient.GetFromJsonAsync<UserModel>($"{BaseUrl}/auth/me");
+                return user;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"❌ Error fetching user: {ex.Message}");
+                return null;
+            }
+        }
+        public async Task<bool> UpdateTaskAsync(TaskModel task, string token)
+        {
+            try
+            {
+                SetAuthorization(token); // Set the token in headers
+
+                // Log the request body for debugging
+                var taskJson = JsonConvert.SerializeObject(task);
+                Debug.WriteLine($"Sending task to update: {taskJson}");
+
+                var response = await _httpClient.PutAsJsonAsync($"{BaseUrl}/tasks/{task.Id}", task);
+
+                // Log response status and content for debugging
+                var responseContent = await response.Content.ReadAsStringAsync();
+                Debug.WriteLine($"API Response Status: {response.StatusCode}");
+                Debug.WriteLine($"API Response Content: {responseContent}");
+
+                if (response.IsSuccessStatusCode)
+                {
+                    Debug.WriteLine($"✅ Task '{task.Text}' updated successfully.");
+                    return true;
+                }
+                else
+                {
+                    Debug.WriteLine($"❌ Failed to update task. Status Code: {response.StatusCode}");
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"❌ Exception while updating task: {ex.Message}");
+                return false;
+            }
         }
 
         public async Task<List<TaskModel>> GetTasksAsync(string token)

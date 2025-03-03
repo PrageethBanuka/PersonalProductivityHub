@@ -1,31 +1,42 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:vm="clr-namespace:Focusly.ViewModels"
-             x:Class="Focusly.Views.HabitPage"
-             Title="Habits">
-    
+<ContentPage
+    x:Class="Focusly.Views.HabitPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:Focusly.ViewModels"
+    Title="Habits">
+
     <ContentPage.BindingContext>
         <vm:HabitViewModel />
     </ContentPage.BindingContext>
 
     <VerticalStackLayout Padding="30">
-        <Label Text="Your Habits" FontSize="24" HorizontalOptions="Center"/>
-        
-        <!-- Habit Input -->
         <HorizontalStackLayout HorizontalOptions="Center">
-            <Entry Placeholder="New Habit" Text="{Binding NewHabitText}" WidthRequest="250"/>
-            <Button Text="Add Habit" Command="{Binding AddHabitCommand}" BackgroundColor="Black" TextColor="White"/>
+            <Entry
+                Margin="10"
+                BackgroundColor="#ffffff"
+                FontSize="16"
+                HeightRequest="50"
+                Placeholder="Enter new Habit"
+                PlaceholderColor="#999"
+                Text="{Binding NewHabitText}"
+                WidthRequest="350" />
+            <Button
+                Padding="22,10"
+                BackgroundColor="Black"
+                Command="{Binding AddHabitCommand}"
+                HeightRequest="25"
+                Text="+Add Habit"
+                TextColor="White" />
         </HorizontalStackLayout>
 
-        <!-- Habit List -->
-        <ListView ItemsSource="{Binding Habits}"
-            HeightRequest ="1000">
+        <!--  Habit List  -->
+        <ListView HeightRequest="1000" ItemsSource="{Binding Habits}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout Orientation="Horizontal" Padding="10">
-                            <Label Text="{Binding Text}" FontSize="18"/>
+                        <StackLayout Padding="10" Orientation="Horizontal">
+                            <Label FontSize="18" Text="{Binding Text}" />
                             <ProgressBar Progress="{Binding Streak, Converter={StaticResource StreakToProgressConverter}}" />
                         </StackLayout>
                     </ViewCell>

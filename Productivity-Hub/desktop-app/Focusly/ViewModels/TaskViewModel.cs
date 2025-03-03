@@ -32,12 +32,38 @@ namespace Focusly.ViewModels
         }
 
         public ICommand LoadTasksCommand { get; }
+        public event Action OnTasksUpdated;
         public ICommand AddTaskCommand { get; }
         public ICommand ShowTimerPopupCommand { get; }
         public ICommand LogoutCommand { get; }
         public ICommand DeleteTaskCommand { get; }
 
         public TaskViewModel() : this(new ApiService(new HttpClient())) { }
+        private async void Task_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == nameof(TaskModel.Completed))
+            {
+                var task = sender as TaskModel;
+                if (task != null)
+                {
+                    string token = Preferences.Get("auth_token", string.Empty);
+                    if (string.IsNullOrEmpty(token))
+                    {
+                        Debug.WriteLine("⚠ No token found");
+                        return;
+                    }
+
+                    Debug.WriteLine($"🔁 Updating task '{task.Text}' (Completed: {task.Completed})");
+
+                    // Call API to update the task on the backend
+                    var success = await _apiService.UpdateTaskAsync(task, token);
+                    if (!success)
+                    {
+                        Debug.WriteLine("❌ Failed to update task.");
+                    }
+                }
+            }
+        }
 
         public TaskViewModel(ApiService apiService)
         {
@@ -45,10 +71,11 @@ namespace Focusly.ViewModels
             LoadTasksCommand = new Command(async () => await LoadTasks());
             AddTaskCommand = new Command(async () => await AddTask(NewTaskText));
             ShowTimerPopupCommand = new Command<TaskModel>((task) =>
-    {
-        var popup = new TimerPopup { BindingContext = this };
-        Application.Current.MainPage.ShowPopup(popup);
-    });
+{
+    var popup = new TimerPopup(task, apiService);
+    popup.BindingContext = new TimerPopupViewModel(task, _apiService,this); // Pass TimerPopupViewModel here
+    Application.Current.MainPage.ShowPopup(popup);
+});
             DeleteTaskCommand = new Command<TaskModel>(async (task) => await DeleteTask(task));
             LogoutCommand = new Command(Logout);
         }
@@ -76,6 +103,7 @@ namespace Focusly.ViewModels
                 Tasks.Clear();
                 foreach (var task in tasks)
                 {
+                    task.PropertyChanged += Task_PropertyChanged; // 🔥 Listen for changes
                     Tasks.Add(task);
                 }
 
@@ -85,6 +113,11 @@ namespace Focusly.ViewModels
             {
                 Debug.WriteLine($"❌ Failed to load tasks: {ex.Message}");
             }
+        }
+        public void RefreshTasks()
+        {
+            // Debug.WriteLine("�� Refreshing tasks...");
+            LoadTasks(); // You can directly call the private method here
         }
 
         public async Task AddTask(string text)

@@ -51,22 +51,25 @@ namespace Focusly.ViewModels
         {
             _authService = new AuthService(new HttpClient());
             LoginCommand = new Command(async () => await Login());
-            SignUpCommand = new Command(async () => await Shell.Current.GoToAsync("//SignUpPage"));
+            SignUpCommand = new Command(OpenSignUpWindow);
         }
 
         private async Task Login()
         {
             try
             {
-                ErrorMessage = ""; // Clear any previous error messages
+                ErrorMessage = ""; // Clear previous errors
                 var response = await _authService.LoginAsync(Email, Password);
 
                 if (!string.IsNullOrEmpty(response))
                 {
-                    // Store token in Preferences
                     Preferences.Set("auth_token", response);
+                    Debug.WriteLine("✅ Login Successful!");
 
-                    // Navigate to the Task Page
+                    // Close the Login Window
+                    CloseLoginWindow();
+
+                    // Navigate to TaskPage
                     await Shell.Current.GoToAsync("//TaskPage");
                 }
                 else
@@ -78,7 +81,21 @@ namespace Focusly.ViewModels
             {
                 ErrorMessage = "Login failed. Please check your connection.";
                 Debug.WriteLine($"❌ Login Error: {ex.Message}");
-                Debug.WriteLine($"Stack Trace: {ex.StackTrace}");
+            }
+        }
+
+        private void OpenSignUpWindow()
+        {
+            var window = new Window(new Views.SignUpPage());
+            Application.Current.OpenWindow(window);
+        }
+
+        private void CloseLoginWindow()
+        {
+            var currentWindow = Application.Current.Windows.FirstOrDefault(w => w.Page is Views.LoginPage);
+            if (currentWindow != null)
+            {
+                currentWindow.Handler?.DisconnectHandler(); // ✅ This is how we close the window
             }
         }
     }

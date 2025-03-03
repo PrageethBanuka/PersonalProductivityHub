@@ -66,6 +66,24 @@ build_metadata.AdditionalFiles.ManifestResourceName = Focusly.Views.LoginPage.xa
 build_metadata.AdditionalFiles.TargetPath = Views/LoginPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views/LoginPage.xaml
 
+[/Users/banukarajapaksha/Developer/GUI_PROJECT/Productivity-Hub/desktop-app/Focusly/Views/ProfilePage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Focusly.Views.ProfilePage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/ProfilePage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/ProfilePage.xaml
+
+[/Users/banukarajapaksha/Developer/GUI_PROJECT/Productivity-Hub/desktop-app/Focusly/Views/SignUpPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Focusly.Views.SignUpPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/SignUpPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/SignUpPage.xaml
+
+[/Users/banukarajapaksha/Developer/GUI_PROJECT/Productivity-Hub/desktop-app/Focusly/Views/StartPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Focusly.Views.StartPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/StartPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/StartPage.xaml
+
 [/Users/banukarajapaksha/Developer/GUI_PROJECT/Productivity-Hub/desktop-app/Focusly/Views/TaskPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Focusly.Views.TaskPage.xaml
