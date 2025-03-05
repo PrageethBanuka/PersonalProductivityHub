@@ -13,6 +13,21 @@ namespace Focusly.ViewModels
         private readonly ApiService _apiService;
         private readonly TaskViewModel _taskViewModel; // Add reference to TaskViewModel
 
+        private DateTime _minDate = DateTime.Today;
+
+        public DateTime MinDate
+        {
+            get => _minDate;
+            set
+            {
+                if (_minDate != value)
+                {
+                    _minDate = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+        
         private DateTime _selectedDateTime;
         public DateTime SelectedDateTime
         {
@@ -86,7 +101,7 @@ namespace Focusly.ViewModels
             if (success)
             {
                 Debug.WriteLine($"✅ Timer updated successfully for Task: {Task.Text}");
-                
+
                 // Trigger task refresh in TaskViewModel
                 _taskViewModel.RefreshTasks(); // Call RefreshTasks to reload tasks
             }

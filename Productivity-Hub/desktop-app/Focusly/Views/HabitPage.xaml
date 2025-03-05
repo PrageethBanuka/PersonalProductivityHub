@@ -3,23 +3,48 @@
     x:Class="Focusly.Views.HabitPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:mi="http://www.aathifmahir.com/dotnet/2022/maui/icons"
     xmlns:vm="clr-namespace:Focusly.ViewModels"
+    x:Name="Habitpage"
     Title="Habits">
 
     <ContentPage.BindingContext>
         <vm:HabitViewModel />
     </ContentPage.BindingContext>
 
-    <VerticalStackLayout Padding="30">
+    <VerticalStackLayout
+        Margin="20"
+        Padding="30"
+        BackgroundColor="#f9f9f9"
+        VerticalOptions="FillAndExpand">
+        <Grid>
+            <Image
+                HeightRequest="150"
+                Source="logo.png"
+                WidthRequest="150" />
+        </Grid>
+        <BoxView
+            Margin="0,2"
+            BackgroundColor="#FF5F5F5F"
+            HeightRequest="0.5" />
         <HorizontalStackLayout HorizontalOptions="Center">
             <Entry
                 Margin="10"
                 BackgroundColor="#ffffff"
                 FontSize="16"
                 HeightRequest="50"
-                Placeholder="Enter new Habit"
+                Placeholder="Add a new Habit"
                 PlaceholderColor="#999"
                 Text="{Binding NewHabitText}"
+                WidthRequest="350" />
+            <Entry
+                Margin="10"
+                BackgroundColor="#ffffff"
+                FontSize="16"
+                HeightRequest="50"
+                Placeholder="Goal (e.g., 7 days)"
+                PlaceholderColor="#999"
+                Text="{Binding GoalHabitText}"
                 WidthRequest="350" />
             <Button
                 Padding="22,10"
@@ -29,20 +54,75 @@
                 Text="+Add Habit"
                 TextColor="White" />
         </HorizontalStackLayout>
+        <ScrollView>
+            <!--  Habit List  -->
+            <ListView
+                BackgroundColor="Transparent"
+                CachingStrategy="RecycleElement"
+                HasUnevenRows="True"
+                ItemsSource="{Binding Habits}"
+                MinimumHeightRequest="5000"
+                SeparatorVisibility="None"
+                VerticalOptions="FillAndExpand">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Margin="10" Padding="0">
+                                <Frame
+                                    Margin="0,0,0,10"
+                                    Padding="20"
+                                    BackgroundColor="White"
+                                    CornerRadius="20"
+                                    HasShadow="False"
+                                    HeightRequest="200">
+                                    <StackLayout Spacing="10">
+                                        <!--  Habit Title & Delete Icon  -->
+                                        <HorizontalStackLayout>
+                                            <Label
+                                                FontAttributes="Bold"
+                                                FontSize="20"
+                                                Text="{Binding Text}"
+                                                VerticalOptions="CenterAndExpand" />
+                                            <Button
+                                                BackgroundColor="Transparent"
+                                                Command="{Binding BindingContext.DeleteHabitCommand, Source={x:Reference Name=Habitpage}}"
+                                                CommandParameter="{Binding .}"
+                                                HorizontalOptions="End"
+                                                Text="{mi:FontAwesome TrashCan}"
+                                                TextColor="Gray"
+                                                WidthRequest="30" />
+                                        </HorizontalStackLayout>
 
-        <!--  Habit List  -->
-        <ListView HeightRequest="1000" ItemsSource="{Binding Habits}">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <StackLayout Padding="10" Orientation="Horizontal">
-                            <Label FontSize="18" Text="{Binding Text}" />
-                            <ProgressBar Progress="{Binding Streak, Converter={StaticResource StreakToProgressConverter}}" />
-                        </StackLayout>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+                                        <!--  Progress Bar  -->
+                                        <ProgressBar
+                                            HeightRequest="10"
+                                            Progress="{Binding ., Converter={StaticResource StreakToProgressConverter}}"
+                                            ProgressColor="#9CA3AF" />
+
+                                        <!--  Streak Info  -->
+                                        <Label
+                                            FontSize="16"
+                                            HorizontalOptions="Center"
+                                            Text="{Binding StreaktoGoal}"
+                                            TextColor="Gray" />
+
+                                        <!--  Check In Button  -->
+                                        <Button
+                                            BackgroundColor="{Binding Completed, Converter={StaticResource CheckInButtonColorConverter}}"
+                                            Command="{Binding Source={x:Reference Habitpage}, Path=BindingContext.CheckinCommand}"
+                                            CommandParameter="{Binding .}"
+                                            CornerRadius="10"
+                                            HorizontalOptions="FillAndExpand"
+                                            Text="{Binding Completed, Converter={StaticResource CheckInButtonTextConverter}}"
+                                            TextColor="White" />
+                                    </StackLayout>
+                                </Frame>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollView>
     </VerticalStackLayout>
 
 </ContentPage>

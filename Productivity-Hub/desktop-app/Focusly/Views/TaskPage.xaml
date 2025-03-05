@@ -17,6 +17,16 @@
         Padding="30"
         BackgroundColor="#f9f9f9"
         VerticalOptions="FillAndExpand">
+        <Grid>
+                <Image
+                    HeightRequest="150"
+                    Source="logo.png"
+                    WidthRequest="150" />
+            </Grid>
+            <BoxView
+                Margin="0,2"
+                BackgroundColor="#FF5F5F5F"
+                HeightRequest="0.5" />
         <HorizontalStackLayout HorizontalOptions="Center">
             <Entry
                 Margin="10"

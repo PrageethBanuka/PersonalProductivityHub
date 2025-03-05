@@ -8,6 +8,7 @@ namespace Focusly.Views;
 
 public partial class TimerPopup : Popup
 {
+    
     public readonly TaskViewModel _taskViewModel;
     public TimerPopup(TaskModel task, ApiService apiService)
     {

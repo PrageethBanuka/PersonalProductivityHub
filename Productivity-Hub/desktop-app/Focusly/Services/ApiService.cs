@@ -181,5 +181,61 @@ namespace Focusly.Services
                 return false;
             }
         }
+        public async Task<bool> DeleteHabitAsync(HabitModel habit, string token)
+        {
+            try
+            {
+                // Ensure your API base address is set
+                var request = new HttpRequestMessage(HttpMethod.Delete, $"{BaseUrl}/habits/{habit.Id}")  // Replace with the correct relative URI
+                {
+                    Headers =
+            {
+                Authorization = new AuthenticationHeaderValue("Bearer", token)  // Attach the token for authentication
+            }
+                };
+
+                var response = await _httpClient.SendAsync(request);  // Send the delete request
+                if (response.IsSuccessStatusCode)
+                {
+                    // Task deleted successfully
+                    return true;
+                }
+                else
+                {
+                    // Something went wrong
+                    Debug.WriteLine($"❌ Failed to delete habit. Status Code: {response.StatusCode}");
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle any exceptions that may occur
+                Debug.WriteLine($"❌ Error deleting habit: {ex.Message}");
+                return false;
+            }
+        }
+        public async Task<bool> UpdateHabitAsync(HabitModel habit, string token)
+        {
+            Debug.WriteLine($"Sending Habit Update Request for {habit.Text}");
+            try
+            {
+                SetAuthorization(token);
+
+                var habitJson = JsonConvert.SerializeObject(habit);
+                Debug.WriteLine($"Request JSON: {habitJson}");
+
+                var response = await _httpClient.PutAsJsonAsync($"{BaseUrl}/habits/{habit.Id}", habit);
+
+                var responseContent = await response.Content.ReadAsStringAsync();
+                Debug.WriteLine($"API Response: {response.StatusCode}, {responseContent}");
+
+                return response.IsSuccessStatusCode;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"❌ API Exception: {ex.Message}");
+                return false;
+            }
+        }
     }
 }
