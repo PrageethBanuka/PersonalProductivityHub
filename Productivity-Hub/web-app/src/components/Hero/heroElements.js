@@ -135,4 +135,13 @@ export const HeroContainer = styled.section`
   
   height: fit-content; /* Ensure height only depends on the content */
 }
+.BlurText {
+  text-align: center;
+  font-size: 150px;
+  top: -50px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  height: 100%;
+}
 `;

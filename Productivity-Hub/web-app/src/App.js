@@ -12,6 +12,8 @@ import "./App.css";
 
 import { TaskProvider } from "./context/taskContext"; // TaskProvider for Task page
 import { AuthProvider } from "./context/authProvider"; // Add AuthProvider
+import Footer from "./components/Footer/footer";
+import About from "./pages/About";
 
 // Lazy loading for better performance
 const Home = lazy(() => import("./pages"));
@@ -114,7 +116,7 @@ function App() {
             />
             <Route path="/Habits" element={<Habits />} />
             <Route path="/Insights" element={<Insights />} />
-            <Route path="/Pricing" element={<Pricing />} />
+            <Route path="/About" element={<About />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/signin" element={<SignIn onLogin={handleLogin} />} />
             <Route
@@ -123,6 +125,7 @@ function App() {
             />
           </Routes>
         </Suspense>
+        <Footer/>
       </Router>
     </AuthProvider>
     </div>

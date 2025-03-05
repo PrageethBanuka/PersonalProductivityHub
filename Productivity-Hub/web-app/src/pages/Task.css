@@ -1,6 +1,7 @@
 /* Styles for the task page */
 /* Heading */
 h1 {
+  position: relative;
   margin-top: 150px;
   font-size: 2rem;
   color: #333;

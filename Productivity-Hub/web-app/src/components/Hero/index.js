@@ -4,7 +4,7 @@ import { BtnLink } from "../Global/ButtonLink";
 import { Btn } from "../Global/Button";
 import { motion } from "framer-motion";
 import { title } from "framer-motion/client";
-import TextAnimation from "../../animations/textAnimation";
+import BlurText from "../../animations/BlurText";
 
 const Hero = () => {
   const [cursorPos, setCursorPos] = useState({ x: "50%", y: "50%" });
@@ -31,7 +31,7 @@ const Hero = () => {
     >
       {/* <h1>Your personal productivity companion</h1> */}
       <div class="title">
-        {text.map((el, i) => (
+        {/* {text.map((el, i) => (
           <motion.span
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
@@ -43,7 +43,14 @@ const Hero = () => {
           >
             {el}{" "}
           </motion.span>
-        ))}
+        ))} */}
+        <BlurText
+          text="Your personal productivity companion"
+          delay={150}
+          animateBy="words"
+          direction="bottom"
+          className="BlurText"
+        ></BlurText>
       </div>
       <p>
         Seamlessly manage tasks, build habits, and get AI-powered insights to

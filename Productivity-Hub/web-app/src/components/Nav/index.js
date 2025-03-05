@@ -39,8 +39,8 @@ const Navbar = () => {
           <NavLink to="/Insights" isActive={location.pathname === "/Insights"}>
             AI Insights
           </NavLink>
-          <NavLink to="/Pricing" isActive={location.pathname === "/Pricing"}>
-            Pricing
+          <NavLink to="/About" isActive={location.pathname === "/About"}>
+            About
           </NavLink>
           {token ? (
             avatar ? (

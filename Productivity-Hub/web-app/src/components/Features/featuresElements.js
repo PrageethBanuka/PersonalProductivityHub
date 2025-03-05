@@ -2,14 +2,14 @@ import styled from "styled-components";
 
 export const FeaturesSection = styled.div`
   padding: 4rem 2rem;
-  background-color: #f9fafb;
+  background-color: #0c0c0c;
   text-align: center;
 `;
 
 export const FeaturesHeading = styled.h2`
   font-size: 2.5rem;
   font-weight: bold;
-  color: #0c0c0c;
+  color: #fcfcfc;
   margin-bottom: 1.5rem;
 
   @media screen and (max-width: 768px) {
@@ -19,7 +19,7 @@ export const FeaturesHeading = styled.h2`
 
 export const FeaturesSubheading = styled.p`
   font-size: 1.125rem;
-  color: #6b7280;
+  color: #555;
   margin-bottom: 3rem;
   max-width: 700px;
   margin-left: auto;
@@ -54,15 +54,15 @@ export const FeatureCard = styled.div`
   `;
 
 export const FeatureIcon = styled.div`
-  font-size: 2.5rem;
-  color: #0c0c0c;
+  font-size: 1.5rem;
+  color: #fcfcfc;
   margin-bottom: 1rem;
 `;
 
 export const FeatureTitle = styled.h3`
   font-size: 1.25rem;
   font-weight: 600;
-  color: #0c0c0c;
+  color: #fcfcfc;
   margin-bottom: 0.75rem;
 `;
 

@@ -1,0 +1,28 @@
+.footer {
+    background: #0c0c0c;
+    color: #ffffff;
+    padding: 20px;
+    text-align: center !important;
+    margin-top: 50px;
+  }
+  
+  .footer-content nav {
+    margin-top: 10px;
+    align-items: center;
+    text-align: center;
+    
+  }
+  .my-logo{
+    margin-bottom: 100px;
+  }
+  
+  .footer-content a {
+    color: #ffffff;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-content a:hover {
+    color: #FFC107;
+  }
