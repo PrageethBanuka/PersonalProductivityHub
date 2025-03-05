@@ -14,7 +14,10 @@ public partial class App : Application
         var apiService = new ApiService(new HttpClient());
         var taskViewModel = new TaskViewModel(apiService);
         SyncService = new SyncService(apiService, taskViewModel);
-        MainPage = new AppShell();
+        MainPage = new AppShell
+            {
+                BindingContext = new AppShellViewModel()
+            };
     }
     protected override void OnStart()
         {

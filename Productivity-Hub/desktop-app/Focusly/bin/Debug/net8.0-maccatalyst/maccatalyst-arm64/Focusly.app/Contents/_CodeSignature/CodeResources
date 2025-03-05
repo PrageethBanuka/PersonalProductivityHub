@@ -10,7 +10,7 @@
 		</data>
 		<key>Resources/Assets.car</key>
 		<data>
-		TZPoxpvBQ7ItTcOSiKU1KZdGW/c=
+		DwQwCKeIY86OpvEh7JLQhpR8L5s=
 		</data>
 		<key>Resources/MauiInfo.plist</key>
 		<data>
@@ -30,7 +30,7 @@
 		</data>
 		<key>Resources/appicon.icns</key>
 		<data>
-		tq+BnZMCqu3BJmxd0LKDYjr+z/0=
+		ECTftijTkLi368ni8My0QuHh+64=
 		</data>
 		<key>Resources/dotnet_bot.png</key>
 		<data>
@@ -83,14 +83,28 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Pkq6r699P7/ZZ7uC5BsqroEa6Ov4tK8IgserKyzuVhA=
+			Bw2VmDdx4z/LAwVb/WYbn0q+HZBkNs4sZGAjrVGR6Lo=
 			</data>
 		</dict>
 		<key>MonoBundle/Focusly.pdb</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Sao/+28topZsoTtXmCe+7I4E4T68BhYDBXEz1IQBVY8=
+			ep6rGYYKKHAlBylYBrJtIP2ZVe6KlL+cNdpBfYs+fkA=
+			</data>
+		</dict>
+		<key>MonoBundle/MauiIcons.Core.dll</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			XwMVD32VSb+WmDO1InKGqsNffgZSf4cgGGinRDi7IDk=
+			</data>
+		</dict>
+		<key>MonoBundle/MauiIcons.FontAwesome.dll</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			moEksxa3mxf+5s9QN5VdI4aGdmKUL7BRfvkXKcswfv4=
 			</data>
 		</dict>
 		<key>MonoBundle/Microsoft.Bcl.AsyncInterfaces.dll</key>
@@ -392,6 +406,13 @@
 			<key>hash2</key>
 			<data>
 			yklb9shrfwktYkkoEBmFqUFTLRSdzYrP6hcPilO+iFA=
+			</data>
+		</dict>
+		<key>MonoBundle/Newtonsoft.Json.dll</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			IsZJ91/OW+fHzNqIgEc7Y072ns8z9dGritiSyvR9Wgc=
 			</data>
 		</dict>
 		<key>MonoBundle/SQLitePCLRaw.batteries_v2.dll</key>
@@ -1623,7 +1644,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			03C3DYXyvFAOyD6fm1RanyYoeX5gdGfvAGgsqBjJFUQ=
+			ESs/sSzpQsegoNjDVGEJlhGUk67r7TW3ZqOKCTfs49Y=
 			</data>
 		</dict>
 		<key>MonoBundle/ar/Microsoft.Maui.Controls.resources.dll</key>
@@ -1910,7 +1931,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			TtksvPtLET/N192uaQ7nQ7J+rKLdng9nbMVmn4UXfYQ=
+			QuLSTElf2QxcSg1SgylOqlLyesW/COeewCUFDJAfLjs=
 			</data>
 		</dict>
 		<key>Resources/MauiInfo.plist</key>
@@ -1945,7 +1966,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Yl5mOkHNyEJ0mH+ri9p6ntzRWZ6wBuP8lyUmgmIYaLY=
+			G58JzYR7bQPmatmxRQNGrCTAi7JSJCclNYTRysOcSo0=
 			</data>
 		</dict>
 		<key>Resources/dotnet_bot.png</key>

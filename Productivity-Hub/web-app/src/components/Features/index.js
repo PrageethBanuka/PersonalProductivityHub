@@ -12,6 +12,7 @@ import {
   FeatureDescription,
 } from "./featuresElements";
 import { CircleCheckBig, Zap, Brain, Laptop, Cloud } from "lucide-react";
+import SpotlightCard from "../SpotlightCard/SpotLightCard";
 
 const features = [
   {
@@ -56,11 +57,11 @@ export default function Features() {
       </FeaturesSubheading>
       <FeaturesGrid>
         {features.map((feature, index) => (
-          <FeatureCard key={index}>
+          <SpotlightCard key={index}>
             <FeatureIcon>{feature.icon}</FeatureIcon>
             <FeatureTitle>{feature.title}</FeatureTitle>
             <FeatureDescription>{feature.description}</FeatureDescription>
-          </FeatureCard>
+          </SpotlightCard>
         ))}
       </FeaturesGrid>
     </FeaturesSection>

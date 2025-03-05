@@ -1,25 +1,27 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-       xmlns:views="clr-namespace:Focusly.Views"
-       x:Class="Focusly.AppShell"
-       BackgroundColor="#fcfcfc">
+<Shell
+    x:Class="Focusly.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:Focusly.Views"
+    Title="Focusly">
 
-    <!-- Login Page (outside TabBar to prevent showing in navigation) -->
-    <ShellContent Route="LoginPage"
-                  ContentTemplate="{DataTemplate views:LoginPage}" />
+    <ShellContent ContentTemplate="{DataTemplate views:StartPage}" Route="StartPage" />
 
-    <!-- TabBar with Bottom Navigation -->
+    <ShellContent ContentTemplate="{DataTemplate views:LoginPage}" Route="LoginPage" />
+
     <TabBar>
-        <!-- Task Tab -->
-        <ShellContent Title="Tasks"
-                      Route="TaskPage"
-                      ContentTemplate="{DataTemplate views:TaskPage}"/>
+        <ShellContent
+            Title="Login"
+            ContentTemplate="{DataTemplate views:LoginPage}"
+            Route="LoginPage" />
+        <ShellContent
+            Title="Tasks"
+            ContentTemplate="{DataTemplate views:TaskPage}"
+            Route="TaskPage" />
 
-        <!-- Habit Tab -->
-        <ShellContent Title="Habits"
-                      Route="HabitPage"
-                      ContentTemplate="{DataTemplate views:HabitPage}"/>
+        <ShellContent
+            Title="Habits"
+            ContentTemplate="{DataTemplate views:HabitPage}"
+            Route="HabitPage" />
     </TabBar>
-
 </Shell>

@@ -12,7 +12,8 @@
 
     <Grid
         x:Name="MainContent"
-        Padding="20"
+        Margin="20"
+        Padding="30"
         IsVisible="True">
         <VerticalStackLayout>
             <Grid>

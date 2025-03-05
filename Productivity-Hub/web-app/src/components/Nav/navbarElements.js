@@ -62,7 +62,7 @@ export const NavLink = styled(Link)`
   position: relative;
 
   &:hover {
-    color: ${(props) => (props.isActive ? "#fcfcfc" : "#000")};
+    color: ${(props) => (props.isActive ? "#fcfcfc" : "#555")};
   }
 `;
 

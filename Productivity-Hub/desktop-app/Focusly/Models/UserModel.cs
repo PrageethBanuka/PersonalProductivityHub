@@ -7,6 +7,6 @@ namespace Focusly.Models
         public string Email { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
-        public string Avatar { get; set; } = "http://localhost:3000/images/user.png"; // Default avatar
+        public string Avatar { get; set; }
     }
 }

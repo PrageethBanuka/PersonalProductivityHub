@@ -9,5 +9,6 @@ namespace Focusly.Models
         public int Goal { get; set; } = 7;
         public DateTime CreatedAt { get; set; }
         public int UserId { get; set; }
+        public string StreaktoGoal => $"Streak: {Streak}/{Goal}";
     }
 }

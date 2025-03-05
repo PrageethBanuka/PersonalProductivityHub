@@ -41,6 +41,8 @@
 /Users/banukarajapaksha/Developer/GUI_PROJECT/Productivity-Hub/desktop-app/Focusly/bin/Debug/net8.0-maccatalyst/maccatalyst-arm64/Focusly.runtimeconfig.json
 /Users/banukarajapaksha/Developer/GUI_PROJECT/Productivity-Hub/desktop-app/Focusly/bin/Debug/net8.0-maccatalyst/maccatalyst-arm64/Focusly.dll
 /Users/banukarajapaksha/Developer/GUI_PROJECT/Productivity-Hub/desktop-app/Focusly/bin/Debug/net8.0-maccatalyst/maccatalyst-arm64/Focusly.pdb
+/Users/banukarajapaksha/Developer/GUI_PROJECT/Productivity-Hub/desktop-app/Focusly/bin/Debug/net8.0-maccatalyst/maccatalyst-arm64/MauiIcons.Core.dll
+/Users/banukarajapaksha/Developer/GUI_PROJECT/Productivity-Hub/desktop-app/Focusly/bin/Debug/net8.0-maccatalyst/maccatalyst-arm64/MauiIcons.FontAwesome.dll
 /Users/banukarajapaksha/Developer/GUI_PROJECT/Productivity-Hub/desktop-app/Focusly/bin/Debug/net8.0-maccatalyst/maccatalyst-arm64/Azure.Core.dll
 /Users/banukarajapaksha/Developer/GUI_PROJECT/Productivity-Hub/desktop-app/Focusly/bin/Debug/net8.0-maccatalyst/maccatalyst-arm64/Azure.Identity.dll
 /Users/banukarajapaksha/Developer/GUI_PROJECT/Productivity-Hub/desktop-app/Focusly/bin/Debug/net8.0-maccatalyst/maccatalyst-arm64/CommunityToolkit.Maui.dll
@@ -91,6 +93,7 @@
 /Users/banukarajapaksha/Developer/GUI_PROJECT/Productivity-Hub/desktop-app/Focusly/bin/Debug/net8.0-maccatalyst/maccatalyst-arm64/Microsoft.SqlServer.Server.dll
 /Users/banukarajapaksha/Developer/GUI_PROJECT/Productivity-Hub/desktop-app/Focusly/bin/Debug/net8.0-maccatalyst/maccatalyst-arm64/Microsoft.Win32.SystemEvents.dll
 /Users/banukarajapaksha/Developer/GUI_PROJECT/Productivity-Hub/desktop-app/Focusly/bin/Debug/net8.0-maccatalyst/maccatalyst-arm64/Mono.TextTemplating.dll
+/Users/banukarajapaksha/Developer/GUI_PROJECT/Productivity-Hub/desktop-app/Focusly/bin/Debug/net8.0-maccatalyst/maccatalyst-arm64/Newtonsoft.Json.dll
 /Users/banukarajapaksha/Developer/GUI_PROJECT/Productivity-Hub/desktop-app/Focusly/bin/Debug/net8.0-maccatalyst/maccatalyst-arm64/SQLitePCLRaw.batteries_v2.dll
 /Users/banukarajapaksha/Developer/GUI_PROJECT/Productivity-Hub/desktop-app/Focusly/bin/Debug/net8.0-maccatalyst/maccatalyst-arm64/SQLitePCLRaw.core.dll
 /Users/banukarajapaksha/Developer/GUI_PROJECT/Productivity-Hub/desktop-app/Focusly/bin/Debug/net8.0-maccatalyst/maccatalyst-arm64/SQLitePCLRaw.provider.e_sqlite3.dll

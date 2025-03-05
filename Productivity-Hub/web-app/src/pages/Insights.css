@@ -1,5 +1,7 @@
 h1 {
-    margin-top: 80px;
+    position: relative;
+    margin-top: 100px;
+    margin-bottom: 20px;
     text-align: center;
 }
 
@@ -90,7 +92,7 @@ canvas {
 }
 
 .chat-input {
-    width: 100%;
+    width: 80%;
     height: 80px;
     padding: 10px;
     border: 1px solid #ddd;
@@ -101,7 +103,7 @@ canvas {
 }
 
 .chat-btn {
-    width: 100%;
+    width: 80%;
     margin-top: 10px;
     padding: 12px;
     font-size: 16px;
@@ -123,32 +125,24 @@ canvas {
     border-radius: 8px;
     font-size: 16px;
     text-align: left;
-}
-
-.ai-response h2 {
+  }
+  
+  .ai-response h2 {
     font-size: 20px;
     font-weight: bold;
     margin-bottom: 10px;
-}
-
-/* ✅ Style AI Response List */
-.ai-response-list {
-    text-align: left;
-    padding-left: 20px;
-    
-}
-
-.ai-response-list li {
-    font-size: 16px;
-    color: #333;
-    margin-bottom: 8px;
-    opacity: 0;
-    
-}
-
-/* ✅ Different styling for numbered list */
-.ai-response-list .numbered {
-    color: #0c0c0c;
-    list-style-type: none;
-    margin-left: 15px;
-}
+  }
+  
+  .glow-text {
+    animation: glowText 0.8s infinite alternate;
+    color: #007AFF;
+  }
+  
+  @keyframes glowText {
+    from {
+      text-shadow: 0 0 5px rgba(0, 122, 255, 0.5);
+    }
+    to {
+      text-shadow: 0 0 15px rgba(0, 122, 255, 0.9);
+    }
+  }

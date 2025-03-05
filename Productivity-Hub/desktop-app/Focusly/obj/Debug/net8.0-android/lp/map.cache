@@ -2,6 +2,8 @@ CommunityToolkit.Maui.Core.dll
 CommunityToolkit.Maui.dll
 GoogleGson.dll
 Jsr305Binding.dll
+MauiIcons.Core.dll
+MauiIcons.FontAwesome.dll
 Microsoft.Identity.Client.dll
 Microsoft.Maui.Controls.Compatibility.dll
 Microsoft.Maui.Controls.dll
