@@ -18,15 +18,15 @@
         BackgroundColor="#f9f9f9"
         VerticalOptions="FillAndExpand">
         <Grid>
-                <Image
-                    HeightRequest="150"
-                    Source="logo.png"
-                    WidthRequest="150" />
-            </Grid>
-            <BoxView
-                Margin="0,2"
-                BackgroundColor="#FF5F5F5F"
-                HeightRequest="0.5" />
+            <Image
+                HeightRequest="150"
+                Source="logo.png"
+                WidthRequest="150" />
+        </Grid>
+        <BoxView
+            Margin="0,2"
+            BackgroundColor="#FF5F5F5F"
+            HeightRequest="0.5" />
         <HorizontalStackLayout HorizontalOptions="Center">
             <Entry
                 Margin="10"
@@ -49,8 +49,10 @@
         <ListView
             HasUnevenRows="True"
             HeightRequest="1000"
+            MaximumWidthRequest="800"
             ItemsSource="{Binding Tasks}"
-            VerticalOptions="FillAndExpand">
+            VerticalOptions="FillAndExpand"
+            VerticalScrollBarVisibility="Always">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
@@ -65,16 +67,17 @@
                                 FontSize="18"
                                 HorizontalOptions="StartAndExpand"
                                 Text="{Binding Text}"
+                                TextDecorations="{Binding Completed, Converter={StaticResource StrikeThroughConverter}}"
                                 VerticalOptions="Center" />
 
                             <Label
+                                Padding="2"
                                 BackgroundColor="Transparent"
                                 FontSize="14"
                                 HorizontalOptions="End"
                                 Text="{Binding RemainingTime}"
-                                VerticalOptions="Center" 
                                 TextColor="Tomato"
-                                Padding="2"/>
+                                VerticalOptions="Center" />
                             <Button
                                 BackgroundColor="Transparent"
                                 Command="{Binding BindingContext.ShowTimerPopupCommand, Source={x:Reference Name=Taskpage}}"

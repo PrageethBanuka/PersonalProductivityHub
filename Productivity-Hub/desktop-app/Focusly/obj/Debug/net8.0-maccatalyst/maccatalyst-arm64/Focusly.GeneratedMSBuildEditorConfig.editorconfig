@@ -66,6 +66,12 @@ build_metadata.AdditionalFiles.ManifestResourceName = Focusly.Views.LoginPage.xa
 build_metadata.AdditionalFiles.TargetPath = Views/LoginPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views/LoginPage.xaml
 
+[/Users/banukarajapaksha/Developer/GUI_PROJECT/Productivity-Hub/desktop-app/Focusly/Views/PomodoroPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Focusly.Views.PomodoroPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/PomodoroPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/PomodoroPage.xaml
+
 [/Users/banukarajapaksha/Developer/GUI_PROJECT/Productivity-Hub/desktop-app/Focusly/Views/ProfilePage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Focusly.Views.ProfilePage.xaml

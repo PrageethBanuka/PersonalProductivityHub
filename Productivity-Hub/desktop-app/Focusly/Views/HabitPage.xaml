@@ -27,27 +27,32 @@
             Margin="0,2"
             BackgroundColor="#FF5F5F5F"
             HeightRequest="0.5" />
-        <HorizontalStackLayout HorizontalOptions="Center">
+        <HorizontalStackLayout
+            Padding="0,20"
+            HorizontalOptions="Center"
+            MaximumWidthRequest="800"
+            VerticalOptions="CenterAndExpand">
             <Entry
-                Margin="10"
+                Margin="0,10,10,10"
                 BackgroundColor="#ffffff"
                 FontSize="16"
                 HeightRequest="50"
                 Placeholder="Add a new Habit"
                 PlaceholderColor="#999"
                 Text="{Binding NewHabitText}"
-                WidthRequest="350" />
+                WidthRequest="310" />
             <Entry
-                Margin="10"
+                Margin="10,10,10,10"
                 BackgroundColor="#ffffff"
                 FontSize="16"
                 HeightRequest="50"
                 Placeholder="Goal (e.g., 7 days)"
                 PlaceholderColor="#999"
                 Text="{Binding GoalHabitText}"
-                WidthRequest="350" />
+                WidthRequest="310" />
             <Button
                 Padding="22,10"
+                Margin="10,10,0,10"
                 BackgroundColor="Black"
                 Command="{Binding AddHabitCommand}"
                 HeightRequest="25"
@@ -72,17 +77,20 @@
                                     Margin="0,0,0,10"
                                     Padding="20"
                                     BackgroundColor="White"
-                                    CornerRadius="20"
+                                    CornerRadius="8"
                                     HasShadow="False"
-                                    HeightRequest="200">
+                                    HeightRequest="200"
+                                    MaximumWidthRequest="800">
                                     <StackLayout Spacing="10">
                                         <!--  Habit Title & Delete Icon  -->
                                         <HorizontalStackLayout>
                                             <Label
                                                 FontAttributes="Bold"
                                                 FontSize="20"
+                                                HorizontalOptions="Start"
                                                 Text="{Binding Text}"
-                                                VerticalOptions="CenterAndExpand" />
+                                                VerticalOptions="CenterAndExpand"
+                                                WidthRequest="730" />
                                             <Button
                                                 BackgroundColor="Transparent"
                                                 Command="{Binding BindingContext.DeleteHabitCommand, Source={x:Reference Name=Habitpage}}"
