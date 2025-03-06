@@ -9,4 +9,5 @@ public partial class AppShell : Shell
         InitializeComponent(); // This will only work if the XAML is linked properly
         BindingContext = new AppShellViewModel(); // ViewModel assigned here
     }
+   
 }

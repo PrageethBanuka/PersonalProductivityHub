@@ -18,6 +18,8 @@
             <converters:StreakToProgressConverter x:Key="StreakToProgressConverter" />
             <converters:CheckInButtonTextConverter x:Key="CheckInButtonTextConverter" />
             <converters:CheckInButtonColorConverter x:Key="CheckInButtonColorConverter" />
+            <converters:StrikeThroughConverter x:Key="StrikeThroughConverter" />
         </ResourceDictionary>
+        
     </Application.Resources>
 </Application>

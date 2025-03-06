@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Focusly.Views.PomodoroPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Pomodoro Timer"
+    BackgroundColor="#0c0c0c">
+
+    <VerticalStackLayout
+        Padding="30"
+        BackgroundColor="Transparent"
+        VerticalOptions="Center">
+        <Label
+            FontAttributes="Bold"
+            FontSize="48"
+            HorizontalOptions="Center"
+            Text="Pomodoro Timer"
+            TextColor="#fcfcfc" />
+
+        <!-- Timer Label -->
+        <Label
+            x:Name="TimerLabel"
+            FontSize="96"
+            HorizontalOptions="Center"
+            Text="{Binding TimerText}"
+            TextColor="White" />
+
+        <HorizontalStackLayout HorizontalOptions="Center">
+            <Button
+                Margin="10"
+                Command="{Binding StartCommand}"
+                HorizontalOptions="Center"
+                Text="Start" />
+            <Button
+                Margin="10"
+                Command="{Binding StopCommand}"
+                HorizontalOptions="Center"
+                Text="Stop" />
+        </HorizontalStackLayout>
+
+        <!-- Break timer and cancel break button -->
+        <Label
+            x:Name="BreakLabel"
+            FontSize="24"
+            HorizontalOptions="Center"
+            Text="{Binding BreakText}"
+            TextColor="Red"
+            IsVisible="{Binding IsBreakVisible}" />
+
+        <HorizontalStackLayout
+            HorizontalOptions="Center"
+            IsVisible="{Binding IsBreakVisible}">
+            <Button
+                Margin="10"
+                Command="{Binding CancelBreakCommand}"
+                HorizontalOptions="Center"
+                Text="Cancel Break" />
+        </HorizontalStackLayout>
+        
+
+    </VerticalStackLayout>
+</ContentPage>

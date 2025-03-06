@@ -2,11 +2,19 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Focusly.Models;
 using Microsoft.Maui.Storage;
+using System.Windows.Input;
+using Microsoft.Maui.Controls;
 
 namespace Focusly.ViewModels
 {
     public class AppShellViewModel : INotifyPropertyChanged
     {
+        public ICommand NavigatePomodoroCommand { get; }
+
+       
+            // Initialize the command
+            
+        
         private string _avatar;
         private string _name;
 
@@ -41,6 +49,10 @@ namespace Focusly.ViewModels
 
         public AppShellViewModel()
         {
+            NavigatePomodoroCommand = new Command(async () =>
+            {
+                await Shell.Current.GoToAsync("PomodoroPage");
+            });
             ProfileSettingsCommand = new Command(async () =>
             {
                 await Shell.Current.GoToAsync("//ProfilePage");
