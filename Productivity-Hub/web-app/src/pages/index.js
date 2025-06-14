@@ -5,6 +5,7 @@ import Hero from "../components/Hero/index";
 import Features from "../components/Features/index";
 import { motion, spring } from "framer-motion";
 import { filter } from "framer-motion/client";
+import Demo from "../components/DemoSection";
 
 const Events = () => {
   return (
@@ -19,6 +20,9 @@ const Events = () => {
       </div>
       <div>
         <Features />
+      </div>
+      <div>
+        <Demo />
       </div>
     </motion.div>
   );

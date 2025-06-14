@@ -119,3 +119,17 @@ p {
   background-color: #ddd;
   border-radius: 8px;
 }
+.profile-details input {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.update-profile-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
