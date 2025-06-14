@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import "./About.css";
 import Features from "../components/Features";
+import ScrollVelocity from "../animations/ScrollVelocity";
 
 const About = () => {
   return (
@@ -26,7 +27,9 @@ const About = () => {
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 0.4 }}
       >
-        Focusly helps you manage your <strong>Tasks</strong>, track your <strong>Habits</strong>, and gain personalized insights through AI-Powered Summaries.
+        Focusly helps you manage your <strong>Tasks</strong>, track your{" "}
+        <strong>Habits</strong>, and gain personalized insights through
+        AI-Powered Summaries.
       </motion.p>
 
       <motion.div className="about-section">
@@ -63,7 +66,6 @@ const About = () => {
             Export Tasks & Habits as CSV
           </motion.li>
         </ul> */}
-        
       </motion.div>
 
       <motion.p
@@ -71,8 +73,13 @@ const About = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.6 }}
       >
-        Focusly is designed by <strong>Banuka Rajapaksha</strong> to boost productivity and help users build positive habits.
+        Focusly is designed by <strong>Banuka Rajapaksha</strong> to boost
+        productivity and help users build positive habits.
       </motion.p>
+      <ScrollVelocity
+        texts={["Focusly", "Productivity Hub"]}
+        className="custom-scroll-text"
+      />
 
       {/* <div className="contact-link">
         <a href="/contact">Get in Touch →</a>

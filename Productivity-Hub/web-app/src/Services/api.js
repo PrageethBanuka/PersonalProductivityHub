@@ -36,3 +36,15 @@ export const fetchAIInsights = async () => {
   });
   return response.data;
 };
+export const updateProfile = async (data) => { // Accept single object
+  const token = localStorage.getItem("token");
+  return axios.put(`${API_URL}/user/profile`, 
+    data, // ✅ Correct data structure
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+    }
+  );
+};
