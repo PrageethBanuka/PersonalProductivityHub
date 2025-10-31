@@ -178,6 +178,19 @@ The `/insights` endpoints use Mistral. Set `MISTRAL_API_KEY` on Render if you wa
 - 404s on refresh → ensure `web-app/public/_redirects` exists (we added it).
 - CORS errors → restrict CORS to your frontend domain or ensure `REACT_APP_API_URL` points to the right backend URL.
 - Database errors → confirm `DATABASE_URL` on Render and that Prisma migrations were run against Supabase.
+- Prisma error `Generator "postgresql" failed` → your `generator` block is misconfigured. It must be:
+  
+   ```prisma
+   generator client {
+      provider = "prisma-client-js"
+   }
+  
+   datasource db {
+      provider = "postgresql"
+      url      = env("DATABASE_URL")
+   }
+   ```
+   If you see SQLite in the migrate output, you’re still on the old datasource; update it to `postgresql` and rerun.
 
 ---
 
