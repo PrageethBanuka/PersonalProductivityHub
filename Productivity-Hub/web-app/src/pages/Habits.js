@@ -4,6 +4,7 @@ import "./Habits.css";
 import HabitForm from "../components/Habits/habitForm";
 import HabitItem from "../components/Habits/habitItem";
 import { motion } from "framer-motion";
+import { API_URL } from "../Services/api";
 
 function Habits() {
   const [habits, setHabits] = useState([]);
@@ -22,7 +23,7 @@ function Habits() {
     setLoading(true);
     setError("");
     try {
-      const response = await fetch("http://localhost:5001/habits", {
+      const response = await fetch(`${API_URL}/habits`, {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
       if (!response.ok) throw new Error("Failed to fetch habits");
@@ -37,7 +38,7 @@ function Habits() {
 
   const addHabit = async (habit) => {
     try {
-      await fetch("http://localhost:5001/habits", {
+      await fetch(`${API_URL}/habits`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -53,7 +54,7 @@ function Habits() {
 
   const updateHabit = async (habitId, updatedHabit) => {
     try {
-      await fetch(`http://localhost:5001/habits/${habitId}`, {
+      await fetch(`${API_URL}/habits/${habitId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -69,7 +70,7 @@ function Habits() {
 
   const deleteHabit = async (habitId) => {
     try {
-      await fetch(`http://localhost:5001/habits/${habitId}`, {
+      await fetch(`${API_URL}/habits/${habitId}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,

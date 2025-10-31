@@ -36,7 +36,9 @@ module.exports = (prisma) => {
 
       res.json(tasks);
     } catch (error) {
-      res.status(500).json({ message: "Error fetching tasks", error: error.message });
+      res
+        .status(500)
+        .json({ message: "Error fetching tasks", error: error.message });
     }
   });
 
@@ -44,7 +46,8 @@ module.exports = (prisma) => {
   router.post("/", authenticate, async (req, res) => {
     const { text } = req.body;
 
-    if (!text) return res.status(400).json({ message: "Task text is required" });
+    if (!text)
+      return res.status(400).json({ message: "Task text is required" });
 
     try {
       const newTask = await prisma.task.create({
@@ -52,7 +55,9 @@ module.exports = (prisma) => {
       });
       res.status(201).json(newTask);
     } catch (error) {
-      res.status(500).json({ message: "Error creating task", error: error.message });
+      res
+        .status(500)
+        .json({ message: "Error creating task", error: error.message });
     }
   });
 
@@ -62,9 +67,30 @@ module.exports = (prisma) => {
     const { text, completed, timer } = req.body;
 
     try {
+      // Parse the timer only if it is provided
+      let parsedTimer = undefined;
+      if (timer) {
+        parsedTimer = new Date(timer); // Convert the ISO-8601 string to Date object
+
+        // Check if the parsedTimer is a valid date
+        if (isNaN(parsedTimer.getTime())) {
+          return res
+            .status(400)
+            .json({ message: "Invalid DateTime format for timer" });
+        }
+      }
+
+      // Ensure completed is a boolean
+      const validCompleted =
+        typeof completed === "boolean" ? completed : undefined;
+
       const updatedTask = await prisma.task.updateMany({
         where: { id: parseInt(id), userId: req.user.id },
-        data: { text, completed, timer },
+        data: {
+          text,
+          completed: validCompleted,
+          timer: parsedTimer, // Pass the valid Date object or undefined
+        },
       });
 
       if (updatedTask.count === 0) {
@@ -73,14 +99,16 @@ module.exports = (prisma) => {
 
       res.json(updatedTask);
     } catch (error) {
-      res.status(500).json({ message: "Error updating task", error: error.message });
+      res
+        .status(500)
+        .json({ message: "Error updating task", error: error.message });
     }
   });
 
   // Delete a task
   router.delete("/:id", authenticate, async (req, res) => {
     const { id } = req.params;
-
+    //console.log("request : " ,req);
     try {
       const deletedTask = await prisma.task.deleteMany({
         where: { id: parseInt(id), userId: req.user.id },
@@ -92,7 +120,9 @@ module.exports = (prisma) => {
 
       res.status(204).send();
     } catch (error) {
-      res.status(500).json({ message: "Error deleting task", error: error.message });
+      res
+        .status(500)
+        .json({ message: "Error deleting task", error: error.message });
     }
   });
 
