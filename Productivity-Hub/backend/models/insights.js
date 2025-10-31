@@ -1,18 +1,17 @@
 const express = require("express");
 const axios = require("axios");
-const router = express.Router();
-const { PrismaClient } = require("@prisma/client");
 const authMiddleware = require("../middlewares/auth");
-
-const prisma = new PrismaClient();
 require("dotenv").config(); // Load environment variables
 
 // ✅ Mistral API Setup
 const MISTRAL_API_URL = "https://api.mistral.ai/v1/chat/completions";
 const API_KEY = process.env.MISTRAL_API_KEY; // 🔥 Ensure this is set in .env
 
-// ✅ Fetch task & habit summary
-router.get("/summary", authMiddleware, async (req, res) => {
+module.exports = (prisma) => {
+  const router = express.Router();
+
+  // ✅ Fetch task & habit summary
+  router.get("/summary", authMiddleware, async (req, res) => {
     try {
         const userId = req.user?.id;
         if (!userId) return res.status(401).json({ error: "Unauthorized" });
@@ -34,10 +33,10 @@ router.get("/summary", authMiddleware, async (req, res) => {
         console.error("❌ Error fetching summary:", error);
         res.status(500).json({ error: "Failed to fetch summary" });
     }
-});
+  });
 
-// ✅ AI Response for user input
-router.post("/", authMiddleware, async (req, res) => {
+  // ✅ AI Response for user input
+  router.post("/", authMiddleware, async (req, res) => {
     const { userMessage } = req.body;
 
     if (!userMessage) {
@@ -67,6 +66,7 @@ router.post("/", authMiddleware, async (req, res) => {
         console.error("❌ AI API Error:", error.response?.data || error.message);
         res.status(500).json({ error: "Failed to fetch AI insights." });
     }
-});
+  });
 
-module.exports = router;
+  return router;
+};

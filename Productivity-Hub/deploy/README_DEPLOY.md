@@ -1,10 +1,10 @@
 # Productivity-Hub – Free Deployment Guide (Frontend + Backend)
 
-This guide gets your app online for free using reliable hobby tiers:
+This guide gets your app online for free using reliable hobby tiers. You can choose either the Netlify + Render path, or deploy both on Vercel.
 
-- Frontend: Netlify (or Vercel/Cloudflare Pages)
-- Backend API: Render Free Web Service (auto-sleeps when idle)
-- Database: Supabase (PostgreSQL) free tier
+- Option A (simple): Frontend on Netlify (or Vercel/Cloudflare Pages), Backend on Render
+- Option B (all-in-Vercel): Frontend on Vercel Static, Backend as Vercel Serverless Functions
+- Database: Supabase (PostgreSQL) or Vercel Postgres (free tiers)
 
 If you skip the database step, the current SQLite database will reset on every deploy/restart. For a real app, use Supabase.
 
@@ -18,7 +18,21 @@ If you skip the database step, the current SQLite database will reset on every d
 
 ---
 
-## 2) Frontend (web-app) – Netlify
+## 2) Frontend (web-app)
+
+### A) Vercel (All-in-Vercel)
+
+We included `web-app/vercel.json` to rewrite all routes to `index.html` so your CRA router works on refresh.
+
+Steps:
+1) Push repo to GitHub
+2) On Vercel → New Project → Import the repo → set Root Directory to `web-app`
+3) Framework Preset: "Create React App"; Build Command: `npm run build`; Output Directory: `build`
+4) Add env var (recommended):
+   - `REACT_APP_API_URL` = https://<your-backend>.vercel.app
+5) Deploy. You’ll get https://<frontend>.vercel.app
+
+### B) Netlify (Alternative)
 
 The project is Create React App. We added `public/_redirects` so SPA routes work.
 
@@ -37,7 +51,33 @@ Alternative: Vercel or Cloudflare Pages work out-of-the-box with the same settin
 
 ---
 
-## 3) Backend (backend) – Render Free Web Service
+## 3) Backend (backend)
+
+You can deploy the Node/Express backend either on Vercel (serverless) or Render (always-on free dyno).
+
+### A) Vercel Serverless Functions (All-in-Vercel)
+
+We refactored the backend so it can run as a Serverless Function on Vercel:
+
+- `backend/index.js` now exports the Express `app` and only calls `listen` when run directly
+- `backend/api/index.js` wraps the app with `serverless-http` and exports it as the function entrypoint
+- `backend/package.json` includes `serverless-http` and `postinstall` to run `prisma generate`
+
+Steps:
+1) On Vercel → New Project → Import the repo → set Root Directory to `backend`
+2) Build Command: `npm install` (default)
+3) No custom Output Directory; Vercel auto-detects `/api` as functions
+4) Environment variables:
+   - `SECRET_KEY` = a long random string
+   - `MISTRAL_API_KEY` = optional (for AI Insights)
+   - `DATABASE_URL` = REQUIRED for serverless. Use a Postgres DB (Supabase, Neon, or Vercel Postgres)
+5) Deploy. You’ll get https://<backend>.vercel.app and your API endpoints under the same domain.
+
+Important:
+- SQLite is not suitable on Vercel functions. Use Postgres.
+- Prefer pooled connections (Neon with pgbouncer, Vercel Postgres, or Prisma Accelerate/Data Proxy) to avoid connection limits.
+
+### B) Render Free Web Service (Alternative)
 
 We added a `start` script so Render can run your server.
 
@@ -60,7 +100,7 @@ Deploy and get a URL like https://your-backend.onrender.com. Use this in the fro
 
 ---
 
-## 4) Database – Supabase (Free, Persistent)
+## 4) Database – Supabase or Vercel Postgres (Free, Persistent)
 
 Your repo currently uses SQLite (`prisma/schema.prisma`). SQLite is great locally but not for cloud. Here’s how to switch to Postgres (Supabase) without changing your app code beyond Prisma config.
 
@@ -79,7 +119,7 @@ Your repo currently uses SQLite (`prisma/schema.prisma`). SQLite is great locall
 
 2) Save. Do NOT change your models.
 
-3) In terminal at `backend/` run migrations for Postgres:
+3) In terminal at `backend/` run migrations for Postgres (locally):
 
    ```sh
    npm install
@@ -91,7 +131,7 @@ Your repo currently uses SQLite (`prisma/schema.prisma`). SQLite is great locall
 
 4) Seed (optional): Create any seed script or use your app to create data.
 
-5) Set `DATABASE_URL` on Render using your Supabase connection string and redeploy the backend.
+5) Set `DATABASE_URL` on Vercel/Render using your Supabase (or Vercel Postgres/Neon) connection string and redeploy the backend.
 
 Notes:
 - If Prisma asks about resetting the database, say yes (only for new DBs).
@@ -101,7 +141,8 @@ Notes:
 
 ## 5) Wire up frontend → backend
 
-- On Netlify (or Vercel/CF Pages), set `REACT_APP_API_URL` to your Render backend URL, then redeploy the frontend.
+- On Vercel, set `REACT_APP_API_URL` in the `web-app` project to your backend Vercel URL, then redeploy the frontend.
+- On Netlify (if using it), set `REACT_APP_API_URL` to your Render or Vercel backend URL, then redeploy the frontend.
 - The frontend is now using a dynamic API base URL (no hardcoded localhost).
 
 ---
