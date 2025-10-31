@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const { PrismaClient } = require("@prisma/client");
 const dotenv = require("dotenv");
-const insightsRoute = require("./models/insights");
+const insightsRouteFactory = require("./models/insights");
 
 dotenv.config(); // Load environment variables from .env file
 const app = express();
@@ -18,7 +18,7 @@ app.use("/auth", require("./routes/auth")(prisma)); // Authentication routes
 app.use("/tasks", require("./models/tasks")(prisma)); // Tasks routes
 app.use("/user", require("./routes/user")(prisma));
 app.use("/habits", require("./models/habits")(prisma));
-app.use("/insights", insightsRoute);
+app.use("/insights", insightsRouteFactory(prisma));
 app.get("/", (req, res) => {
   res.send("Focusly API is Running 🚀");
 });
@@ -37,10 +37,14 @@ app.use((err, req, res, next) => {
   res.status(500).send({ message: "Something went wrong!" });
 });
 
-// Start Server
-app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
-});
+// Export the app for serverless; only listen when run directly
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`Server running at http://localhost:${PORT}`);
+  });
+}
+
+module.exports = app;
 
 // Note: Habit routes moved to /habits with auth in models/habits.js
 
