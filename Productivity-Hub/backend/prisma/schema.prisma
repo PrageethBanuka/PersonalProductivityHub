@@ -3,41 +3,39 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = "file:./dev.db"
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
 
-// User model: Represents users of the application
 model User {
-  id       Int     @id @default(autoincrement()) 
-  name     String? // Optional field
+  id       Int     @id @default(autoincrement())
+  name     String?
   email    String  @unique
-  username String? @unique // Optional field
+  username String? @unique
   password String
   avatar   String  @default("http://localhost:3000/images/user.png")
-  tasks    Task[]
   habits   Habit[]
+  tasks    Task[]
 }
 
-// Task model: Represents tasks created by users
 model Task {
-  id        Int       @id @default(autoincrement()) // Unique identifier
-  text      String // Task description
-  completed Boolean   @default(false) // Completion status
-  timer     DateTime? // timer for the task
-  createdAt DateTime  @default(now()) // Timestamp of task creation
-  userId    Int // Foreign key to associate with a user
-  user      User      @relation(fields: [userId], references: [id]) // Relation to User model
+  id        Int       @id @default(autoincrement())
+  text      String
+  completed Boolean   @default(false)
+  timer     DateTime?
+  createdAt DateTime  @default(now())
+  userId    Int
+  user      User      @relation(fields: [userId], references: [id])
 }
 
-// Habit model: Represents habits tracked by users
 model Habit {
-  id        Int      @id @default(autoincrement()) // Unique identifier
-  text      String // Habit description
-  completed Boolean  @default(false) // Completion status
-  streak    Int      @default(0) // Current streak count
-  goal      Int      @default(7) // Goal in days (e.g., 7-day streak)
-  userId    Int // Foreign key to associate with a user
-  user      User     @relation(fields: [userId], references: [id]) // Relation to User model
-  createdAt DateTime @default(now()) // Timestamp of habit creation
+  id        Int      @id @default(autoincrement())
+  text      String
+  completed Boolean  @default(false)
+  streak    Int      @default(0)
+  goal      Int      @default(7)
+  userId    Int
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id])
 }
