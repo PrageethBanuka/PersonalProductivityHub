@@ -1,6 +1,13 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5001";
+// Prefer env var; fallback to localhost in dev and Railway in prod
+const DEFAULT_PROD_API = "https://personalproductivityhub-production.up.railway.app";
+const DEFAULT_LOCAL_API = "http://localhost:5001"; // backend/index.js defaults to 5001
+export const API_URL =
+  process.env.REACT_APP_API_URL ||
+  (typeof window !== "undefined" && window.location.hostname === "localhost"
+    ? DEFAULT_LOCAL_API
+    : DEFAULT_PROD_API);
 
 export const registerUser = async (data) => {
   const response = await axios.post(`${API_URL}/auth/register`, data);

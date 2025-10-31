@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { API_URL } from "../Services/api";
 import { Btn } from "../components/Global/Button";
 import { motion } from "framer-motion";
 import { Bar } from "react-chartjs-2";
@@ -32,7 +33,7 @@ const Insights = () => {
     setError("");
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.get("http://localhost:5001/insights/summary", {
+      const response = await axios.get(`${API_URL}/insights/summary`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -64,7 +65,7 @@ const Insights = () => {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.post(
-        "http://localhost:5001/insights",
+        `${API_URL}/insights`,
         { userMessage: userInput },
         { headers: { Authorization: `Bearer ${token}` } }
       );

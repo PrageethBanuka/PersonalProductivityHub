@@ -44,7 +44,7 @@ export const HeroContainer = styled.section`
       rgba(0, 0, 0, 0.6) 0%,
       transparent 100%
     ); */
-    background-color:rgba(12, 12, 12, 0.8);
+    background-color: rgba(12, 12, 12, 0.8);
     backdrop-filter: blur(3px);
     pointer-events: none; /* Ensure no interference with clicks */
     transform: translate(-50%, -50%);
@@ -74,7 +74,7 @@ export const HeroContainer = styled.section`
   .title {
     position: relative;
     font-size: 8rem;
-    font-weight:bold;
+    font-weight: bold;
     margin-bottom: 1rem;
     /* filter: blur(2.5px); */
     scale: 1.001;
@@ -82,8 +82,8 @@ export const HeroContainer = styled.section`
     z-index: 1;
     opacity: 0.6;
     @media screen and (max-width: 768px) {
-    font-size: 4rem;
-  }
+      font-size: 4rem;
+    }
   }
   .title:hover {
     scale: 1;
@@ -122,26 +122,29 @@ export const HeroContainer = styled.section`
       z-index: 1; /* Ensure it's clickable and above all layers */
       cursor: pointer;
     }
-    
   }
   .Btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  width: 100%; /* Ensure it spans the full width of the parent */
-  margin-left: -24px;
-  margin-right: auto;
-  
-  height: fit-content; /* Ensure height only depends on the content */
-}
-.BlurText {
-  text-align: center;
-  font-size: 150px;
-  top: -50px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-  height: 100%;
-}
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%; /* Ensure it spans the full width of the parent */
+    margin-left: -24px;
+    margin-right: auto;
+
+    height: fit-content; /* Ensure height only depends on the content */
+  }
+  .BlurText {
+    text-align: center;
+    font-size: 150px;
+    top: -50px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: 100%;
+
+    @media screen and (max-width: 768px) {
+    font-size: 75px;
+  }
+  }
 `;

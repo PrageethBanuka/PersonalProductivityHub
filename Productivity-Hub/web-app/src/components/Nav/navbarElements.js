@@ -39,8 +39,66 @@ export const BottomNav = styled.div`
   justify-content: center;
   z-index: 999;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1024px) {
     display: none;
+  }
+`;
+
+export const Hamburger = styled.div`
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  z-index: 1100;
+  margin-left: auto;
+  margin-right: 1rem;
+
+  span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    margin: 4px 0;
+    background: #333;
+    border-radius: 2px;
+    transition: 0.3s;
+  }
+
+  @media (max-width: 1024px) {
+    display: flex;
+  }
+`;
+
+export const MobileNav = styled.div`
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  top: 100px;
+  left: 0;
+  width: 100vw;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(20px);
+  z-index: 100;
+  padding: 1.5rem 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  border-radius: 0 0 20px 20px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+
+  &.open {
+    display: flex;
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  @media (max-width: 768px) {
+    display: flex;
   }
 `;
 
@@ -49,6 +107,13 @@ export const NavMenu = styled.div`
   justify-content: center;
   gap: 1rem;
   position: relative;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+    align-items: center;
+  }
 `;
 
 export const NavLink = styled(Link)`
